@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'}" />
+    <script href="{% static 'Js/scripts.js' %}"></script>
+    {% load static %} {% if Home %}
+    <title>FUTA: Chat</title>
+    {% endif %} {% if profile %}
+    <title>User Profile</title>
+    {% endif %}
+  </head>
+  <body>
+    {% block content %} {% endblock content %}
+  </body>
+</html>
