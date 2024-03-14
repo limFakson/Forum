@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     {% load static %}
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'}" />
-    <script href="{% static 'Js/scripts.js' %}"></script>
-    {% load static %} {% if Home %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <script src="{% static 'Js/scripts.js' %}"></script>
+    {% load static %}
+    {% if Home %}
     <title>FUTA: Chat</title>
-    {% endif %} {% if profile %}
+    {% endif %}
+    {% if profile %}
     <title>User Profile</title>
     {% endif %}
-  </head>
-  <body>
-    {% block content %} {% endblock content %}
-  </body>
+</head>
+<body>
+<header class="header">
+    {% if Home %}
+    <div class="logobox">
+        <img class="logo" alt=""/>
+    </div>
+    <div class="navbar">
+        <ul class="topmenu">
+            <li class="topmenu1">News</li>
+            <li class="topmenu2">Chat</li>
+            <li class="topmenu3">Account
+                <ul class="submenu">
+                    <li class="submenu1">Profile</li>
+                    <li class="submenu2">Sign Up</li>
+                    <li class="submenu3">Log In</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+</header>
+<div class="main">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
 </html>

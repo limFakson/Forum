@@ -1,8 +1,69 @@
-body{
-    background-color: black;
+body {
+    background-color: rgb(255, 255, 255);
+    margin: 0px;
+    padding: 0;
     box-sizing: border-box;
+    color: rgb(0, 0, 0);
 }
 
-*{
-    background-color: black;
+header.header {
+    top: 0;
+    width: 100%;
+    background-color: burlywood;
+    padding: 10px 20px; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.header .logo {
+    width: 100px; 
+    height: auto; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center; 
+}
+
+.topmenu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex; 
+    margin: 15px;
+}
+
+.topmenu li {
+    margin: 0 10px; 
+    padding: 5px 10px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+    position: relative; 
+}
+
+.topmenu li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: burlywood;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    list-style: none;
+}
+
+.submenu li {
+    margin: 5px 0;
+    padding: 5px 0;
+}
+
+.topmenu li:hover .submenu {
+    display: block;
 }
