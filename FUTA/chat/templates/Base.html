@@ -19,9 +19,15 @@
     {% endif %}
   </head>
   <body>
+    <div>
       <header class="header">
         <div class="logobox">
-          <a href="{% url 'Homepage' %}"><img class="logo" alt="" src="{% static 'media/images/Futalogo.jpg' %}" /></a>
+          <a href="{% url 'Homepage' %}"
+            ><img
+              class="logo"
+              alt=""
+              src="{% static 'media/images/Futalogo.jpg' %}"
+          /></a>
         </div>
         <div class="navbar">
           {% if Home %}
@@ -31,26 +37,34 @@
             <li id="topmenu3">
               Account
               <ul class="submenu">
-                <li id="submenu1"><a href="{% url 'profilePage' %}">Profile</a></li>
-                <li id="submenu2"><a href="{% url 'createAccount' %}">Register</a></li>
+                <li id="submenu1">
+                  <a href="{% url 'profilePage' %}">Profile</a>
+                </li>
+                <li id="submenu2">
+                  <a href="{% url 'createAccount' %}">Register</a>
+                </li>
                 <li id="submenu3"><a href="{% url 'Login' %}">Login</a></li>
               </ul>
             </li>
-            </ul>
-          {% endif %}
-          {% if not Home %}
+          </ul>
+          {% endif %} {% if not Home %}
           <ul class="topmenu">
-            <li class="topmenu2"><a href="{% url 'createAccount' %}">Sign up</a></li>
+            <li class="topmenu2">
+              <a href="{% url 'createAccount' %}">Sign up</a>
+            </li>
             <li class="topmenu3"><a href="{% url 'Login' %}">Login</a></li>
           </ul>
-        {% endif %}
+          {% endif %}
         </div>
       </header>
+    </div>
     <div class="main">{% block content %} {% endblock %}</div>
-    <footer id="foot">
-      <div>
-        <p>&copy; 2024 FUTA Chat</p>
-      </div>
-    </footer>
+    {% comment %} <div>
+      <footer id="foot">
+        <div>
+          <p>&copy; 2024 FUTA Chat</p>
+        </div>
+      </footer>
+    </div> {% endcomment %}
   </body>
 </html>
