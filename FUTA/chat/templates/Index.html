@@ -1,74 +1,202 @@
 {% extends "Base.html" %} {% load static %} {% block content %}
 <div class="content">
   <div class="sidebar">
-    <h1>Sidebar</h1>
+    <div class="sidebarcontent">
+      <h1>sidebar</h1>
+    </div>
   </div>
   <div class="postsection">
-    <div class="post">
-      <div>
-        <img
-          src="{% static 'media/images/DP.png' %}"
-          alt="Author Display Picture"
-          class="author-dp" />
-      </div>
-      <div>
-        <div class="post-content">
-          <div>
-            <h4 class="username">John Doe</h4>
-            <h5 class="usertag">@johndoe</h5>
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis cumque dolorem saepe fuga perferendis aliquid mollitia.
-            Dolor minima distinctio exercitationem eius, alias unde sed
-            voluptatibus esse, nobis vel modi nam?
-          </p>
-        </div>
-        <img
-          src="{% static 'media/images/H5.png' %}"
-          alt="Post Picture"
-          class="post-pic" />
-        <div class="reaction-section">
-          <div>Reactions: Like Comment Share</div>
-          <div>10 Likes 5 Comments 3 Shares</div>
-        </div>
+    <div class="sidebar2">
+      <div class="sidebar2content">
+        <h1>sidebar</h1>
       </div>
     </div>
+    <div>
+      <div class="post">
+        <div>
+          <img
+            src="{% static 'media/images/DP.png' %}"
+            alt="Author Display Picture"
+            class="author-dp" />
+        </div>
+        <div>
+          <div class="post-content">
+            <div>
+              <h4 class="username">Burner</h4>
+              <h5 class="usertag">@burnerj26</h5>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis cumque dolorem saepe fuga perferendis aliquid
+              mollitia. Dolor minima distinctio exercitationem eius, alias unde
+              sed voluptatibus esse, nobis vel modi nam?
+            </p>
+          </div>
+          <img
+            src="{% static 'media/images/H5.png' %}"
+            alt="Post Picture"
+            class="post-pic" />
+          <div class="reaction-section">
+            <div>Reactions: Like Comment Share</div>
+            <div>10 Likes 5 Comments 3 Shares</div>
+          </div>
+        </div>
+      </div>
 
-    <!-- post 2 -->
-    <div class="post">
-      <div>
-        <img
-          src="{% static 'media/images/DP.png' %}"
-          alt="Author Display Picture"
-          class="author-dp" />
-      </div>
-      <div>
-        <div class="post-content">
-          <div>
-            <h4 class="username">John Doe</h4>
-            <h5 class="usertag">@johndoe</h5>
+      <!-- post 2 -->
+      <div class="post">
+        <div>
+          <img
+            src="{% static 'media/images/images.jpeg' %}"
+            alt="Author Display Picture"
+            class="author-dp" />
+        </div>
+        <div>
+          <div class="post-content">
+            <div>
+              <h4 class="username">Skriter</h4>
+              <h5 class="usertag">@xxl</h5>
+            </div>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto
+              doloribus officiis excepturi assumenda aperiam aliquam ex facilis
+              ea id suscipit! Pariatur nostrum ab exercitationem facere enim.
+              Quidem odit nisi iure.
+            </p>
           </div>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto
-            doloribus officiis excepturi assumenda aperiam aliquam ex facilis ea
-            id suscipit! Pariatur nostrum ab exercitationem facere enim. Quidem
-            odit nisi iure.
-          </p>
-        </div>
-        <img
-          src="{% static 'media/images/H7.jpg' %}"
-          alt="Post Picture"
-          class="post-pic" />
-        <div class="reaction-section">
-          <div>Reactions: Like Comment Share</div>
-          <div>10 Likes 5 Comments 3 Shares</div>
+          <img
+            src="{% static 'media/images/H7.jpg' %}"
+            alt="Post Picture"
+            class="post-pic" />
+          <div class="reaction-section">
+            <div>Reactions: Like Comment Share</div>
+            <div>10 Likes 5 Comments 3 Shares</div>
+          </div>
         </div>
       </div>
+
+      <!-- Post 3 -->
+
+      <div class="post">
+        <div>
+          <img
+            src="{% static 'media/images/Dp3.png' %}"
+            alt="Author Display Picture"
+            class="author-dp" />
+        </div>
+        <div>
+          <div class="post-content">
+            <div>
+              <h4 class="username">Scenery</h4>
+              <h5 class="usertag">@lyf</h5>
+            </div>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Voluptate suscipit repellendus sunt, ipsa nihil pariatur maiores
+              harum quasi, optio facilis, eligendi architecto aspernatur est
+              fugiat id rerum iure nam dolores?
+            </p>
+          </div>
+          <img
+            src="{% static 'media/images/H6.jpg' %}"
+            alt="Post Picture"
+            class="post-pic" />
+          <div class="reaction-section">
+            <div>Reactions: Like Comment Share</div>
+            <div>10 Likes 5 Comments 3 Shares</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    </div>
+    <div class="videosection">
+      <div>
+        <div class="videobox">
+          <video
+            id="video1"
+            class="postvid"
+            onclick="videoControl(1)"
+            src="{% static 'media/videos/Kicked.mp4' %}"
+            loop></video>
+          <div class="overlay">
+            <div class="vidprofile"><img
+              class="author-dp"
+              src="{% static 'media/images/images.jpeg' %}"
+              alt="Author profile picture" />
+            <h3 class="author-name">Skriter</h3></div>
+            <p class="post-content">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro,
+              error commodi consequatur in ab beatae deleniti doloremque amet,
+              tempore, magni possimus impedit. Itaque, architecto quidem!
+              Tempora excepturi nisi unde accusantium.
+            </p>
+          </div>
+          <div class="reactions">
+            <img class="reaction-icon" src="like.svg" alt="Like icon" />
+            <img class="reaction-icon" src="comment.svg" alt="Comment icon" />
+            <img class="reaction-icon" src="share.svg" alt="Share icon" />
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="videobox">
+          <video
+            id="video2"
+            class="postvid"
+            onclick="videoControl(2)"
+            src="{% static 'media/videos/vidtest2.mp4' %}"
+            loop></video>
+          <div class="overlay">
+            <div class="vidprofile"><img
+              class="author-dp"
+              src="{% static 'media/images/DP.png' %}"
+              alt="Author profile picture" />
+            <h3 class="author-name">Burner</h3></div>
+            <p class="post-content">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro,
+              error commodi consequatur in ab beatae deleniti doloremque amet,
+              tempore, magni possimus impedit. Itaque, architecto quidem!
+              Tempora excepturi nisi unde accusantium.
+            </p>
+          </div>
+          <div class="reactions">
+            <img class="reaction-icon" src="like.svg" alt="Like icon" />
+            <img class="reaction-icon" src="comment.svg" alt="Comment icon" />
+            <img class="reaction-icon" src="share.svg" alt="Share icon" />
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="videobox">
+          <video
+            id="video3"
+            class="postvid"
+            onclick="videoControl(3)"
+            src="{% static 'media/videos/Numbbug.mp4' %}"
+            loop></video>
+          <div class="overlay">
+            <div class="vidprofile"><img
+              class="author-dp"
+              src="{% static 'media/images/Dp3.png' %}"
+              alt="Author profile picture" />
+            <h3 class="author-name">Scenery</h3></div>
+            <p class="post-content">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum
+              odio aliquid accusamus nam quidem provident porro perspiciatis
+              reprehenderit neque officia sequi recusandae, sed ipsum fugit
+              ducimus est doloribus sint mollitia!
+            </p>
+          </div>
+          <div class="reactions">
+            <img class="reaction-icon" src="like.svg" alt="Like icon" />
+            <img class="reaction-icon" src="comment.svg" alt="Comment icon" />
+            <img class="reaction-icon" src="share.svg" alt="Share icon" />
+          </div>
+        </div>
+      </div>
+      <div class="spacing"></div>
     </div>
   </div>
-  <div class="videosection">
-    <h1>Video</h1>
-  </div>
+  {% endblock %}
 </div>
-{% endblock %}

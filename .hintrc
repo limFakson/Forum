@@ -13,7 +13,8 @@
       "default",
       {
         "ignore": [
-          "height: fit-content"
+          "height: fit-content",
+          "scrollbar-color"
         ]
       }
     ]
