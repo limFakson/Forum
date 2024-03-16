@@ -1,14 +1,56 @@
 {% extends "Base.html" %} {% load static %} {% block content %}
 <div class="content">
   <div class="sidebar">
-    <div class="sidebarcontent">
-      <h1>sidebar</h1>
+    <div class="userbox">
+        <div class="sidebar">
+          <div>
+            <img src="{% static 'media/images/Futalogo.jpg' %}">
+          </div>
+          <div>
+          <ul>
+            <li>Profile</li>
+            <li>Customization</li>
+            <li>Faculty</li>
+            <li>Department</li>
+            <li>Social</li>
+            <li>Settings</li>
+            <li>Privacy</li>
+            <li>Earn</li>
+            <li>Legal Terms</li>
+          </ul>
+        </div>
+        </div>
+      <div class="userprof">
+        <img src="{% static 'media/images/DP.png' %}" id="user-dp">
+        <h3 class="user-tag">Rayne</h3>
+    </div>
     </div>
   </div>
   <div class="postsection">
     <div class="sidebar2">
-      <div class="sidebar2content">
-        <h1>sidebar</h1>
+      <div class="userbox2">
+          <div class="sidebar2">
+            <div>
+              <img src="{% static 'media/images/Futalogo.jpg' %}">
+            </div>
+            <div>
+            <ul>
+              <li>Profile</li>
+              <li>Customization</li>
+              <li>Faculty</li>
+              <li>Department</li>
+              <li>Social</li>
+              <li>Settings</li>
+              <li>Privacy</li>
+              <li>Earn</li>
+              <li>Legal Terms</li>
+            </ul>
+          </div>
+          </div>
+        <div class="userprof2">
+          <img src="{% static 'media/images/DP.png' %}" id="user-dp2">
+          <h3 class="user-tag2">Rayne</h3>
+      </div>
       </div>
     </div>
     <div>
@@ -22,8 +64,8 @@
         <div>
           <div class="post-content">
             <div>
-              <h4 class="username">Burner</h4>
-              <h5 class="usertag">@burnerj26</h5>
+              <h4 class="username">Rayne</h4>
+              <h5 class="usertag">@Raynej26</h5>
             </div>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -133,7 +175,7 @@
             </p>
           </div>
           <div class="reactions">
-            <img class="reaction-icon" src="like.svg" alt="Like icon" />
+            <i class="bi bi-heart-fill"></i>
             <img class="reaction-icon" src="comment.svg" alt="Comment icon" />
             <img class="reaction-icon" src="share.svg" alt="Share icon" />
           </div>
@@ -152,7 +194,7 @@
               class="author-dp"
               src="{% static 'media/images/DP.png' %}"
               alt="Author profile picture" />
-            <h3 class="author-name">Burner</h3></div>
+            <h3 class="author-name">Rayne</h3></div>
             <p class="post-content">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro,
               error commodi consequatur in ab beatae deleniti doloremque amet,
