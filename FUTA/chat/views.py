@@ -33,7 +33,7 @@ def createAccount(request):
             else:
                 user = User.objects.create_user(username=username, email=email, password=password2)  
                 user.save()
-                return redirect('login')
+                return redirect('Login')
         else:
             messages.info(request, 'Passwords do not match')  
             return redirect('createAccount')
@@ -44,9 +44,9 @@ def createAccount(request):
 def login(request):
     if request.method == "POST":
         username = request.POST.get("username", "default value")
-        password = request.POST.get("password2", "default value")
+        password = request.POST.get("password", "default value")  # Changed from password2 to password
         
-        user = auth.authenticate(username = username, password = password)
+        user = auth.authenticate(username=username, password=password)
         
         if user is not None:
             auth.login(request, user)
@@ -54,9 +54,14 @@ def login(request):
             
         else:
             messages.info(request, "Invalid credentials")
-            return redirect("login")
+            return redirect("Login")
     else:
         return render(request,"login.html",{'Login':'Title'})    
     
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+
 def profile(request):
     return render(request,'profile.html',{'Profile':'Title'})     

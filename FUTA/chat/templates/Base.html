@@ -49,7 +49,11 @@
                 <li id="submenu2">
                   <a href="{% url 'createAccount' %}">Register</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li id="submenu3"><a href="{% url 'Login' %}">Logout</a></li>
+                {% else %}
                 <li id="submenu3"><a href="{% url 'Login' %}">Login</a></li>
+                {% endif%}
               </ul>
             </li>
           </ul>
