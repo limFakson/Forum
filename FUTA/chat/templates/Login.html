@@ -1,13 +1,20 @@
 {% extends "Base.html" %} {% load static %} {% block content %}
 <div class="log">
-    <form method="post">
-      {% csrf_token %}
-      <h3>Login</h3>
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" required />
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required />
-      <input type="submit" value="Login" id="logbtn" />
-    </form>
+  <form method="post" action="login" class="shadow-lg">
+    {% csrf_token %}
+    <div>
+      <img src="{% static 'media/images/Futalogo.jpg' %}"/>
+    </div>
+    <br>
+    <h4>User Login</h4>
+    <label for="username">Username</label>
+    <input class="shadow"  type="text" id="username" name="username" required />
+    <label for="password">Password</label>
+    <input  class="shadow" type="password" id="password" name="password" required />
+    {% for message in messages %}
+    <p class="text-danger">{{message}}</p>
+    {% endfor %}
+    <input class="shadow" type="submit" value="Login" id="logbtn" />
+  </form>
 </div>
 {% endblock %}

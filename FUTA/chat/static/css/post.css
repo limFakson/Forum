@@ -49,6 +49,7 @@
 .sidebar li:hover{
     background-color: rgba(88, 3, 81, 0.8);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 .userprof{
@@ -175,14 +176,15 @@
     list-style-type: none;
     margin: 20px 5px;
     padding: 10px;
-    transition: all 500ms ease-in-out;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 500ms ease-in-out;
 }
 
 .sidebar2 li:hover{
     background-color: rgba(88, 3, 81, 0.8);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 .userprof2{

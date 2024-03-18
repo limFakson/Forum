@@ -6,9 +6,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home ,name='Homepage'),
-    path('profile/', views.profile, name= 'profilePage'),
-    path('login/', views.login, name= 'Login'),
-    path('createAccount/', views.createAccount, name= 'createAccount'),
+    path('createAccount', views.createAccount, name= 'createAccount'),
+    path('login', views.login, name= 'Login'),
+    path('profile', views.profile, name= 'profilePage'),
+
 ]
 
 if settings.DEBUG:
