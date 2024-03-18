@@ -11,6 +11,7 @@
     <input class="shadow"  type="text" id="username" name="username" required />
     <label for="password">Password</label>
     <input  class="shadow" type="password" id="password" name="password" required />
+    <p>Don't have an account?<span id="inlinelink"><a href="{% url 'createAccount' %}">&nbsp;Create one</a></span></p>
     {% for message in messages %}
     <p class="text-danger">{{message}}</p>
     {% endfor %}

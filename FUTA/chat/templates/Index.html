@@ -66,8 +66,13 @@
         </div>
       </div>
       <div class="userprof">
-        <img src="{% static 'media/images/DP.png' %}" id="user-dp" />
-        <h4 class="user-tag">Rayne</h4>
+        {% if user.is_authenticated %}
+        <img src="{{ user.profile_pic.url }}" id="user-dp" />
+        <h4 class="user-tag">{{ user.username }}</h4>
+        {% else %}
+        <img src="{% static 'media/images/avatar.png' %}" id="user-dp" />
+        <h4 class="user-tag"><a href="{% url 'Login' %}">&nbsp;Login</a><h4>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -137,9 +142,14 @@
             </ul>
           </div>
         </div>
-        <div class="userprof2">
-          <img src="{% static 'media/images/DP.png' %}" id="user-dp2" />
-          <h4 class="user-tag2">Rayne</h4>
+        <div class="userprof">
+          {% if user.is_authenticated %}
+          <img src="{{ user }}" id="user-dp" />
+          <h4 class="user-tag">{{ user.username }}</h4>
+          {% else %}
+          <img src="{% static 'media/images/avatar.png' %}" id="user-dp" />
+          <h4 class="user-tag"><a href="{% url 'Login' %}">&nbsp;Login</a><h4>
+          {% endif %}
         </div>
       </div>
     </div>

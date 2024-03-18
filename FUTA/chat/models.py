@@ -6,7 +6,7 @@ class Posts(models.Model):
     authordp = models.ImageField(upload_to='static/media/images/', null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.CharField(max_length= 200)
-    image = models.ImageField(upload_to='static/media/images/', null=True, blank=True)
+    image = models.FileField(upload_to='static/media/images/', null=True, blank=True)
 
 class Videos(models.Model):
     authordp = models.ImageField(upload_to='static/media/images/', null=True, blank=True)

@@ -14,6 +14,7 @@
     <input class="shadow" type="password" id="password" name="password" required />
     <label for="password2">Confirm Password</label>
     <input class="shadow" type="password" id="password2" name="password2" required />
+    <p>Already have an account?<span id="inlinelink"><a href="{% url 'Login' %}">&nbsp;Sign in</a></span></p>
     {% for message in messages %}
     <p class="text-danger">{{message}}</p>
     {% endfor %}
