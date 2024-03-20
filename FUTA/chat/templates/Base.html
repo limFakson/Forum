@@ -4,90 +4,39 @@
     {% load static %}
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'bootstrap/icons/font/bootstrap-icons.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/log.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap"
-      rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=My+Soul&family=Nova+Flat&display=swap"
-      rel="stylesheet" />
-    <script src="{% static 'js/scripts.js' %}"></script>
-    {% load static %} {% if Home %}
-    <title>FUTA: Chat</title>
-    {% endif %} {% if profile %}
-    <title>User Profile</title>
-    {% endif %} {% if Login %}
-    <title>Login</title>
-    {% endif %} {% if signUp %}
-    <title>Create Account</title>
-    {% endif %} {% if createProfile %}
-    <title>Create Profile</title>
-    {% endif %}
+    <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <div>
-      <header class="header">
-        <div class="logobox">
-          <a href="{% url 'Homepage' %}"
-            ><img
-              class="logo"
-              alt=""
-              src="{% static 'media/images/Futalogo.jpg' %}"
-          /></a>
-        </div>
-        <div class="navbar">
-          {% if Home %}
-          <ul class="topmenu">
-            <li id="topmenu1">News</li>
-            <li id="topmenu2">Chat</li>
-            <li id="topmenu3">
-              Account
-              <ul class="submenu">
-                <li id="submenu1">
-                  <a href="{% url 'profilePage' %}">Profile</a>
-                </li>
-                <li id="submenu2">
-                  <a href="{% url 'createAccount' %}">Register</a>
-                </li>
-                {% if user.is_authenticated %}
-                <li id="submenu3"><a href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                <li id="submenu3"><a href="{% url 'Login' %}">Login</a></li>
-                {% endif%}
-              </ul>
-            </li>
-          </ul>
-          {% endif %} {% if not Home %} {% if not createProfile %}
-          <ul class="topmenu">
-            <li class="topmenu2">
-              <a href="{% url 'createAccount' %}">Sign up</a>
-            </li>
-            <li class="topmenu3"><a href="{% url 'Login' %}">Login</a></li>
-          </ul>
-          {% endif %} {% endif %}
-        </div>
-      </header>
-    </div>
-    <div class="main">{% block content %} {% endblock %}</div>
+    <header class="header">
+      <div class="logobox">
+        <a href="{% url 'Homepage' %}">
+          <img class="logo" alt="" src="{% static 'media/images/Futalogo.jpg' %}"/>
+        </a>
+      </div>
+      <div class="navbar">
+        {% if user.is_authenticated %}{% endif %}
+      </div>
+    </header>
+    <main>
+    {% block content %} {% endblock %}
+    </main>
     {% comment %}
-    <div>
-      <footer id="foot">
-        <div>
-          <p>&copy; 2024 FUTA Chat</p>
-        </div>
+    <footer id="foot">
+      <div>
+        <p>&copy; 2024 FUTA Chat</p>
+      </div>
       </footer>
-    </div>
     {% endcomment %}
+
+    <!--External Links-->
+    
+    
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=My+Soul&family=Nova+Flat&display=swap" rel="stylesheet" />
   </body>
 </html>

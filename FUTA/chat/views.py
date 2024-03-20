@@ -4,9 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .forms import UserProfileForm
-from .models import UserProfile
-from .models import Posts
-from .models import Videos
+from .models import UserProfile, Videos, Posts
 
 
 # Create your views here.
@@ -57,7 +55,7 @@ def create_profile(request):
             else:
                 messages.error(request, 'There was an error creating your profile. Please check the form.')
         else:
-            return redirect('ogin')  # Redirect to login page if user is not authenticated
+            return redirect('login')  # Redirect to login page if user is not authenticated
     else:
         form = UserProfileForm()
     return render(request, 'profilecreation.html', {'form': form, 'createProfile': 'Title'})
