@@ -1,4 +1,7 @@
-{% extends "Base.html" %} {% load static %} {% block content %}
+{% extends "Base.html" %} 
+{% load static %} 
+{% block title %} Login {% endblock %}
+{% block content %}
 <div class="log">
   <form method="post" action="login" class="shadow-lg">
     {% csrf_token %}

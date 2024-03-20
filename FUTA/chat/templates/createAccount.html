@@ -1,4 +1,7 @@
-{% extends "Base.html" %} {% load static %} {% block content %}
+{% extends "Base.html" %} 
+{% load static %} 
+{% block title %} Create Account {% endblock %}
+{% block content %}
 <div class="log">
   <form class="shadow-lg" method="post" action="createAccount">
     {% csrf_token %}
@@ -18,7 +21,7 @@
     {% for message in messages %}
     <p class="text-danger">{{message}}</p>
     {% endfor %}
-    <input class="shadow" type="submit" value="Sign up" id="logbtn" />
+    <button type="button">Continue</button>
   </form>
 </div>
 {% endblock %}
