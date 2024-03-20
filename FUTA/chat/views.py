@@ -1,7 +1,10 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from .forms import UserProfileForm
+from .models import UserProfile
 from .models import Posts
 from .models import Videos
 
@@ -33,30 +36,56 @@ def createAccount(request):
             else:
                 user = User.objects.create_user(username=username, email=email, password=password2)  
                 user.save()
-                return redirect('Login')
+                return redirect('create_profile')
         else:
             messages.info(request, 'Passwords do not match')  
             return redirect('createAccount')
     else:
         return render(request, 'createAccount.html', {'signUp': 'Title'})
-   
+
+def create_profile(request):
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            form = UserProfileForm(request.POST, request.FILES)
+            if form.is_valid():
+                # Associate the UserProfile instance with the authenticated user
+                profile = form.save(commit=False)
+                profile.user = request.user  # Set the user field to the authenticated user
+                profile.save()  # Now commit the profile to the database
+                messages.success(request, 'Your profile has been created successfully!')
+                return redirect('/')
+            else:
+                messages.error(request, 'There was an error creating your profile. Please check the form.')
+        else:
+            return redirect('ogin')  # Redirect to login page if user is not authenticated
+    else:
+        form = UserProfileForm()
+    return render(request, 'profilecreation.html', {'form': form, 'createProfile': 'Title'})
+
+
+
 
 def login(request):
     if request.method == "POST":
-        username = request.POST.get("username", "default value")
-        password = request.POST.get("password", "default value")  # Changed from password2 to password
+        username = request.POST.get("username")
+        password = request.POST.get("password")
         
         user = auth.authenticate(username=username, password=password)
         
         if user is not None:
             auth.login(request, user)
-            return redirect('/')
+            
+            # Check if the user has a profile
+            if UserProfile.objects.filter(user=user).exists():
+                return redirect('/')  # Redirect to homepage
+            else:
+                return redirect('create_profile')  # Redirect to profile creation page
             
         else:
-            messages.info(request, "Invalid credentials")
+            messages.error(request, "Invalid credentials")
             return redirect("Login")
     else:
-        return render(request,"login.html",{'Login':'Title'})    
+        return render(request, "login.html", {'title': 'Login'})  
     
 def logout(request):
     auth.logout(request)

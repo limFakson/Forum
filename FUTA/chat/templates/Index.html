@@ -67,7 +67,7 @@
       </div>
       <div class="userprof">
         {% if user.is_authenticated %}
-        <img src="{{ user.profile_pic.url }}" id="user-dp" />
+        <img src="{{ user.UserProfile.profile_picture.url }}" id="user-dp" />
         <h4 class="user-tag">{{ user.username }}</h4>
         {% else %}
         <img src="{% static 'media/images/avatar.png' %}" id="user-dp" />
@@ -144,7 +144,7 @@
         </div>
         <div class="userprof">
           {% if user.is_authenticated %}
-          <img src="{{ user }}" id="user-dp" />
+          <img src="{{ user.userprofile.profile_picture.url }}" id="user-dp" />
           <h4 class="user-tag">{{ user.username }}</h4>
           {% else %}
           <img src="{% static 'media/images/avatar.png' %}" id="user-dp" />
