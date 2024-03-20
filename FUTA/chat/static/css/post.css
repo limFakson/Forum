@@ -1,0 +1,371 @@
+.userbox{
+    background-color: rgba(88, 3, 81, 0.8);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 87.8vh;
+    bottom: 0;
+    position: fixed;
+    width: 19.5vw;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+.sidebar{
+    display: block;
+    background-color: white;
+    height: 70vh;
+    margin: 5px 5px 5px 5px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.sidebar2{
+  display: none;
+}
+
+.sidebar img{
+    display: block;
+    width: 40px;
+    height: 40px;  
+    margin: 5px 0 0 5px;
+}
+
+.sidebar ul{
+    padding: 0;
+}
+
+.sidebar li{
+    list-style-type: none;
+    margin: 20px 5px;
+    padding: 10px;
+    transition: all 500ms ease-in-out;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidebar li:hover{
+    background-color: rgba(88, 3, 81, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.userprof{
+    display: flex;
+    width: auto;
+    align-items: center;
+    background-color: white;
+    margin: 0 6px 10px 5px;
+    padding: 5px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+#user-dp{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+}
+
+.user-tag{
+    display: inline-block;
+    overflow: hidden;
+    margin: 2px 0 0 0;
+    font-family: "sunflower";
+    font-weight: bold;
+}
+
+.userbox2{
+    display: none;
+}
+/* MAIN SECTION */
+
+.content {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-gap: 10px;
+  height: 100%;
+  width: 100%;
+  margin-top: 10vh;
+}
+
+.postsection {
+  height: 100vh;
+}
+
+.videosection {
+  display: grid;
+  align-items: flex-start;
+  height: 100vh;
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: var(--scrollbar-width);
+}
+
+@media screen and (min-width: 1300px) {
+  .videosection {
+    display: grid;
+    grid-template-columns: 2.5fr 1.5fr;
+    align-items: flex-start;
+    height: 100vh;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: var(--scrollbar-width);
+  }
+
+  .postsection {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+  }
+
+  .userbox{
+    display: none;
+  }
+
+  .sidebar{
+    display: flex;
+    border-radius: 0;
+    box-shadow: 0 0 0 0;
+  }
+
+  .userbox2{
+    background-color: rgba(88, 3, 81, 0.8);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 87.8vh;
+    bottom: 0;
+    position: fixed;
+    width: 16vw;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* height: fit-content; */
+}
+
+.sidebar2{
+    display: block;
+    background-color: white;
+    height: 70vh;
+    margin: 5px 5px 5px 5px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.sidebar2 img{
+    display: block;
+    width: 40px;
+    height: 40px;  
+    margin: 5px 0 0 5px;
+}
+
+.sidebar2 ul{
+    padding: 0;
+}
+
+.sidebar2 li{
+    list-style-type: none;
+    margin: 20px 5px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+}
+
+.sidebar2 li:hover{
+    background-color: rgba(88, 3, 81, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.userprof2{
+    display: flex;
+    width: auto;
+    align-items: center;
+    background-color: white;
+    margin: 0 6px 10px 5px;
+    padding: 5px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    
+}
+
+#user-dp2{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+}
+
+.user-tag2{
+    display: inline-block;
+    overflow: hidden;
+}
+
+ 
+}
+
+/* POST SECTION */
+
+.postsection {
+  display: grid;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: 0.5fr 4.5fr;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  align-items: flex-start;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  height: fit-content;
+  border: 1px solid rgba(88, 3, 81, 0.8);
+  border-radius: 8px;
+}
+
+.username {
+  font-family: "sunflower";
+  font-weight: bold;
+  display: inline-flex;
+  margin: 10px 0 0 0;
+}
+
+.usertag {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: lighter;
+  color: gray;
+  display: inline-flex;
+  margin: 10px 0 0 5px;
+}
+.author-dp {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.post-content {
+  display: block;
+  grid-column: 2 / span 2;
+  margin-bottom: 10px;
+}
+.post-pic {
+  border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.reaction-section {
+  display: flex;
+  width: 50%;
+  float: right;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.reaction1,
+.reaction2,
+.reaction3,
+.reaction4 {
+  cursor: pointer;
+}
+
+/* VIDEO SECTION */
+
+.videobox {
+  display: grid;
+  align-items: center;
+  position: relative;
+  background-color: black;
+  overflow: hidden;
+  width: 100%;
+  height: 70vh;
+  border: 2px solid rgba(88, 3, 81, 0.8);
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.videosection video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.videosection .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(30% - var(--author-dp-size));
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+.vidprofile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.videosection .author-dp {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid rgba(88, 3, 81, 0.8);
+  cursor: pointer;
+}
+
+.videosection .author-name {
+  display: inline;
+  color: white;
+}
+
+.videosection .post-content {
+  color: white;
+  font-weight: 400;
+  height: 50px;
+  width: 70%;
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: var(--scrollbar-width);
+}
+
+.videosection .reactions {
+  position: absolute;
+  margin-top: 10px;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.videosection .reaction1,
+.videosection .reaction2,
+.videosection .reaction3 {
+  margin-bottom: 5px;
+}

@@ -1,0 +1,71 @@
+/* Login Page */
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.log form {
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  padding: 20px;
+  border-radius: 10px;
+  width: auto;
+  height: auto;
+  border: 1px solid rgba(88, 3, 81, 0.8);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+form img{
+  display: block;
+  width: 40px;
+  height: 40px;  
+  margin: 20px 0 20px 5px;
+}
+
+input {
+  height: 3rem;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  width: 18rem;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid rgba(88, 3, 81, 0.8);
+}
+
+.log input:focus {
+  outline: none;
+  border: 1px solid rgba(88, 3, 81, 0.8);
+}
+
+.log label {
+  text-align: flex-start;
+  margin-bottom: 10px;
+}
+
+#inlinelink a{
+  color: rgba(128, 128, 128, 1);
+  text-decoration: none;
+  font-weight: 100;
+}
+
+#inlinelink a:hover{
+  color: rgba(128, 128, 128, 0.5);
+}
+
+#logbtn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: rgba(88, 3, 81, 1);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+#logbtn:hover {
+  background-color: rgba(88, 3, 81, 0.5);
+}
