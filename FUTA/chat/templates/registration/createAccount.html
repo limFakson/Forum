@@ -1,0 +1,16 @@
+{% extends "Base.html" %} 
+{% load static %} 
+{% block title %} Create Account {% endblock %}
+{% block content %}
+<div class="log">
+  <form class="shadow-lg" method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>Already have an account?<span id="inlinelink"><a href="{% url 'login' %}">&nbsp;Sign in</a></span></p>
+    {% for message in messages %}
+    <p class="text-danger">{{message}}</p>
+    {% endfor %}
+    <button type="submit">Continue</button>
+  </form>
+</div>
+{% endblock %}

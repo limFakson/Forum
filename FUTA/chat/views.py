@@ -1,94 +1,61 @@
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .forms import UserProfileForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
+
+
+from .forms import UserProfileForm, UserRegistrationForm
 from .models import UserProfile, Videos, Posts
 
 
 # Create your views here.
+@login_required(login_url="/forum/login")
 def home(request):
+    userprofile = UserProfile.objects.get(user=request.user)
     post = Posts.objects.all()
     video = Videos.objects.all()
-    return render(request,'Index.html',{'Home':'Title',
-                                        'Posts':post,
-                                        'Videos':video,})
+    return render(request,'Index.html',{'Home':'Title', 'Posts':post, 'Videos':video, 'userprofile':userprofile})
 
 def createAccount(request):
     if request.method == 'POST':
-        username = request.POST.get("username", "default value")
-        email = request.POST.get("email", "default value")
-        password = request.POST.get("password", "default value").strip()
-        password2 = request.POST.get("password2", "default value").strip()  # Fix typo here
-        
-        if password == password2:
-            if User.objects.filter(username=username).exists():  
-                messages.info(request, 'Username already exists')  
-                return redirect('createAccount')
-            
-            elif User.objects.filter(email=email).exists():  
-                messages.info(request, 'Email Already Used')
-                return redirect('createAccount')
-
-            else:
-                user = User.objects.create_user(username=username, email=email, password=password2)  
-                user.save()
-                return redirect('create_profile')
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('profile/create')
         else:
-            messages.info(request, 'Passwords do not match')  
-            return redirect('createAccount')
+            form = UserRegistrationForm()
+
     else:
-        return render(request, 'createAccount.html', {'signUp': 'Title'})
-
-def create_profile(request):
-    if request.method == 'POST':
-        if request.user.is_authenticated:
-            form = UserProfileForm(request.POST, request.FILES)
-            if form.is_valid():
-                # Associate the UserProfile instance with the authenticated user
-                profile = form.save(commit=False)
-                profile.user = request.user  # Set the user field to the authenticated user
-                profile.save()  # Now commit the profile to the database
-                messages.success(request, 'Your profile has been created successfully!')
-                return redirect('/')
-            else:
-                messages.error(request, 'There was an error creating your profile. Please check the form.')
-        else:
-            return redirect('login')  # Redirect to login page if user is not authenticated
-    else:
-        form = UserProfileForm()
-    return render(request, 'profilecreation.html', {'form': form, 'createProfile': 'Title'})
-
-
-
-
-def login(request):
-    if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        
-        user = auth.authenticate(username=username, password=password)
-        
-        if user is not None:
-            auth.login(request, user)
-            
-            # Check if the user has a profile
-            if UserProfile.objects.filter(user=user).exists():
-                return redirect('/')  # Redirect to homepage
-            else:
-                return redirect('create_profile')  # Redirect to profile creation page
-            
-        else:
-            messages.error(request, "Invalid credentials")
-            return redirect("Login")
-    else:
-        return render(request, "login.html", {'title': 'Login'})  
+        form = UserRegistrationForm()
     
-def logout(request):
-    auth.logout(request)
-    return redirect('/')
+    return render(request, 'registration/createAccount.html', {'form': form, 'signUp': 'Title'})
+
+@login_required(login_url="/forum/login")
+def create_profile(request):
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
+        if form.is_valid():
+            if not hasattr(request.user, 'userprofile'):
+                form.save()
+                return redirect('/home')
+            else:
+                return redirect('user_profile_exists')
+        else:
+            form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
+
+    else:        
+        form = UserProfileForm(instance=user_profile)
+
+    return render(request, 'registration/profilecreation.html', {'form': form, 'createProfile': 'Title'})
+
+   
+def logout_view(request):
+    logout(request)
+    return redirect('/home')
 
 
 def profile(request):
-    return render(request,'profile.html',{'Profile':'Title'})     
+    return render(request,'profile.html',{'Profile':'Title'})    
