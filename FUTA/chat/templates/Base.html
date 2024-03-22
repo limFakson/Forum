@@ -9,17 +9,19 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="header">
-      <div class="logobox">
-        <a href="{% url 'Homepage' %}">
-          <img class="logo" alt="" src="{% static 'media/images/Futalogo.jpg' %}"/>
-        </a>
-      </div>
+    <aside>
+      {% if user.is_authenticated %}
       <div class="navbar">
-        {% if user.is_authenticated %}{% endif %}
+        <div class="logo"></div>
       </div>
-    </header>
+      {% else %}
+      <div class="logpg">
+        <div class="lgimg"></div>
+      </div>
+      {% endif %}
+    </aside>
     <main>
+      
     {% block content %} {% endblock %}
     </main>
     {% comment %}
