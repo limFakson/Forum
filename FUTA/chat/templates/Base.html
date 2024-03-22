@@ -9,28 +9,33 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <aside>
-      {% if user.is_authenticated %}
-      <div class="navbar">
-        <div class="logo"></div>
+    <div class="site">
+      <div class="nav">
+        {% if user.is_authenticated %}
+        <div class="navbar">
+          <div class="logo">
+            <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
+          </div>
+        </div>
+        {% else %}
+        <div class="logpg-navbar">
+          <div class="lgimg">
+            <img src="{% static 'media/images/FUTA-logo.png' %}" class="" alt="">
+          </div>
+        </div>
+        {% endif %}
       </div>
-      {% else %}
-      <div class="logpg">
-        <div class="lgimg"></div>
-      </div>
-      {% endif %}
-    </aside>
-    <main>
-      
-    {% block content %} {% endblock %}
-    </main>
-    {% comment %}
-    <footer id="foot">
-      <div>
-        <p>&copy; 2024 FUTA Chat</p>
-      </div>
-      </footer>
-    {% endcomment %}
+      <main>
+        {% block content %} {% endblock %}
+      </main>
+      {% comment %}
+      <footer id="foot">
+        <div>
+          <p>&copy; 2024 FUTA Chat</p>
+        </div>
+        </footer>
+      {% endcomment %}
+    </div>
 
     <!--External Links-->
     

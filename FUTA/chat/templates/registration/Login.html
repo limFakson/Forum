@@ -7,7 +7,7 @@
     {% csrf_token %}
     <h4>User Login</h4>
     {{ form.as_p }}
-    <p>Don't have an account?<span id="inlinelink"><a href="{% url 'createAccount' %}">&nbsp;Create one</a></span></p>
+    <p>Don't have an account?<span id="inlinelink"><a href="{% url 'register' %}">&nbsp;Create one</a></span></p>
     {% for message in messages %}
     <p class="text-danger">{{message}}</p>
     {% endfor %}

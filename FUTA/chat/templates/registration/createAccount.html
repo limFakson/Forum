@@ -2,15 +2,33 @@
 {% load static %} 
 {% block title %} Create Account {% endblock %}
 {% block content %}
-<div class="log">
-  <form class="shadow-lg" method="post" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <p>Already have an account?<span id="inlinelink"><a href="{% url 'login' %}">&nbsp;Sign in</a></span></p>
-    {% for message in messages %}
-    <p class="text-danger">{{message}}</p>
-    {% endfor %}
-    <button type="submit">Continue</button>
-  </form>
+<div class="reg">
+  <div class="container">
+    <div class="cta-container">
+      <h3 id="cta">Join today.</h3>
+    </div>
+  </div>
+  <div class="log">
+    <form class="shadow-lg" method="post" action="">
+      {% csrf_token %}
+      {% if form.errors %}
+      <div class="error">
+          {% for field in form %}
+              {% for error in field.errors %}
+                  <p>{{ field.label }}: {{ error }}</p>
+              {% endfor %}
+          {% endfor %}
+      </div>
+      {% endif %}
+      {{ form.as_p }}
+      {% for message in messages %}
+      <p class="text-danger">{{message}}</p>
+      {% endfor %}
+      <button type="submit">Continue</button>
+      <span>
+        <p class="versa">Already have an account?<span id="inlinelink"><a href="{% url 'login' %}">&nbsp;Sign in</a></span></p>
+      </span>
+    </form>
+  </div>
 </div>
 {% endblock %}
