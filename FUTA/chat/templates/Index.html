@@ -70,11 +70,11 @@
       </div>
       <div class="userprof">
         {% if user.is_authenticated %}
-        <img src="{{ user.UserProfile.profile_picture.url }}" id="user-dp" />
-        <h4 class="user-tag">{{ user.username }}</h4>
+        <img src="{{ userProfile.profile_picture }}" id="user-dp" />
+        <h4 class="user-tag">{{ userprofile.user }}, {{ userprofile.matricNumber }}</h4>
         {% else %}
         <img src="{% static 'media/images/avatar.png' %}" id="user-dp" />
-        <h4 class="user-tag"><a href="{% url 'Login' %}">&nbsp;Login</a><h4>
+        <h4 class="user-tag"><a href="{% url 'login' %}">&nbsp;Login</a><h4>
         {% endif %}
       </div>
     </div>
@@ -151,7 +151,7 @@
           <h4 class="user-tag">{{ user.username }}</h4>
           {% else %}
           <img src="{% static 'media/images/avatar.png' %}" id="user-dp" />
-          <h4 class="user-tag"><a href="{% url 'Login' %}">&nbsp;Login</a><h4>
+          <h4 class="user-tag"><a href="{% url 'login' %}">&nbsp;Login</a><h4>
           {% endif %}
         </div>
       </div>
@@ -229,5 +229,9 @@
     </div>
     <div class="spacing"></div>
   </div>
+</div>
+
+<div>
+  <h1>{{ userprofile.matricNumber }}</h1>
 </div>
 {% endblock %}
