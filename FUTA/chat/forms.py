@@ -19,16 +19,10 @@ class UserRegistrationForm(UserCreationForm):
         def clean(self):
             cleaned_data = super().clean()
             username = cleaned_data.get('username')
-            firstname = cleaned_data.get('firstname')
-            lastname = cleaned_data.get('lastname')
             email = cleaned_data.get('email')
 
             if User.objects.filter(username=username).exists():
                 self.add_error('username', 'Username already exists.')
-            if UserProfile.objects.filter(firstname=firstname).exists():
-                self.add_error('firstname', 'Firstname already exists.')
-            if UserProfile.objects.filter(lastname=lastname).exists():
-                self.add_error('lastname', 'Lastname already exists.')
             if UserProfile.object.filter(email=email).exists():
                 self.add_error('email', 'Email is associated to another user.')
 

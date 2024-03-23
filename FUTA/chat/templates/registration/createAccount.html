@@ -9,26 +9,46 @@
     </div>
   </div>
   <div class="log">
-    <form class="shadow-lg" method="post" action="">
+    <form class="shadow-lg" method="post" action="" id="form">
       {% csrf_token %}
-      {% if form.errors %}
-      <div class="error">
-          {% for field in form %}
-              {% for error in field.errors %}
-                  <p>{{ field.label }}: {{ error }}</p>
-              {% endfor %}
-          {% endfor %}
-      </div>
-      {% endif %}
-      {{ form.as_p }}
-      {% for message in messages %}
-      <p class="text-danger">{{message}}</p>
-      {% endfor %}
+      <p>
+        {{ form.firstname }}
+      </p>
+      <p>
+        {{ form.lastname }}
+      </p>
+      <p>
+        {{ form.username }}
+      </p>
+      <p>
+        {{ form.email }}
+      </p>
+      <p>
+        {{ form.password1 }}
+      </p>
+      <p>
+        {{ form.password2 }}
+        <div id="error"></div>
+      </p>
       <button type="submit">Continue</button>
+    </form>
+    
+      <!--Error message display-->
+      {% if form.username.errors %}
+        <div class="error">{{ form.username.errors }}</div>
+      {% endif %}
+      {% if form.email.errors %}
+        <div class="error">{{ form.email.errors }}</div>
+      {% endif %}
+      
+      <div class="error">
+        {% for message in messages %}
+          <p class="text-danger">{{message}}</p>
+        {% endfor %}
+      </div>
       <span>
         <p class="versa">Already have an account?<span id="inlinelink"><a href="{% url 'login' %}">&nbsp;Sign in</a></span></p>
       </span>
-    </form>
   </div>
 </div>
 {% endblock %}

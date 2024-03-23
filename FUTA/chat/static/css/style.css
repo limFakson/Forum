@@ -39,6 +39,7 @@ img{
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
+  width: 85%;
 }
 .custom-input{
   width: 18rem;
@@ -54,9 +55,14 @@ img{
 label{
   display: none;
 }
+ul{
+  margin: 3px 0;
+  padding: 0;
+  list-style: none;
+}
 .error{
   color: crimson;
-  font-size: 15px;
+  font-size: 13px;
 }
 .versa{
   padding: 10px 0;

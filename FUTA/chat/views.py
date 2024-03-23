@@ -25,11 +25,10 @@ def createAccount(request):
             login(request, user)
             return redirect('profile/create')
         else:
-            form = UserRegistrationForm()
-
+            return render(request, 'registration/createAccount.html', {'form': form, 'signUp': 'Title'})
     else:
         form = UserRegistrationForm()
-    
+
     return render(request, 'registration/createAccount.html', {'form': form, 'signUp': 'Title'})
 
 @login_required(login_url="/forum/login")
