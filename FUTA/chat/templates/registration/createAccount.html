@@ -1,12 +1,10 @@
 {% extends "Base.html" %} 
 {% load static %} 
-{% block title %} Create Account {% endblock %}
+{% block title %} Create Account | It's happening{% endblock %}
 {% block content %}
 <div class="reg">
   <div class="container">
-    <div class="cta-container">
-      <h3 id="cta">Join today.</h3>
-    </div>
+    <h3 id="cta">Create Account.</h3>
   </div>
   <div class="log">
     <form class="shadow-lg" method="post" action="" id="form">
@@ -25,7 +23,7 @@
       </p>
       <p>
         {{ form.password1 }}
-        <div id="error"></div>
+        <div class="error" id="error"></div>
       </p>
       <p>
         {{ form.password2 }}
@@ -33,22 +31,22 @@
       <button type="submit">Continue</button>
     </form>
     
-      <!--Error message display-->
-      {% if form.username.errors %}
-        <div class="error">{{ form.username.errors }}</div>
-      {% endif %}
-      {% if form.email.errors %}
-        <div class="error">{{ form.email.errors }}</div>
-      {% endif %}
-      
-      <div class="error">
-        {% for message in messages %}
-          <p class="text-danger">{{message}}</p>
-        {% endfor %}
-      </div>
-      <span>
-        <p class="versa">Already have an account?<span id="inlinelink"><a href="{% url 'login' %}">&nbsp;Sign in</a></span></p>
-      </span>
+    <!--Error message display-->
+    {% if form.username.errors %}
+      <div class="error">{{ form.username.errors }}</div>
+    {% endif %}
+    {% if form.email.errors %}
+      <div class="error">{{ form.email.errors }}</div>
+    {% endif %}
+    
+    <div class="error">
+      {% for message in messages %}
+        <p class="text-danger">{{message}}</p>
+      {% endfor %}
+    </div>
+    <span>
+      <p class="versa">Already have an account?<span id="inlinelink"><a href="{% url 'login' %}">&nbsp;Sign in</a></span></p>
+    </span>
   </div>
 </div>
 {% endblock %}

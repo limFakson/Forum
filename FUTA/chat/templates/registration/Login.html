@@ -1,17 +1,19 @@
 {% extends "Base.html" %} 
 {% load static %} 
-{% block title %} Login {% endblock %}
+{% block title %} Log in to Forum{% endblock %}
 {% block content %}
-<div class="log">
-  <form method="post" class="shadow-lg">
-    {% csrf_token %}
-    <h4>User Login</h4>
-    {{ form.as_p }}
-    <p>Don't have an account?<span id="inlinelink"><a href="{% url 'register' %}">&nbsp;Create one</a></span></p>
-    {% for message in messages %}
-    <p class="text-danger">{{message}}</p>
-    {% endfor %}
-    <input class="shadow" type="submit" value="Login" id="logbtn" />
-  </form>
+<div class="reg">
+  <div class="container">
+    <h3 id="cta">Log in to Forum</h3>
+  </div>
+  <div class="log">
+    <form class="shadow-lg" method="post" action="">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Log in</button>
+    </form>
+    <span>
+      <p class="versa">Don't have an account?<span id="inlinelink"><a href="{% url 'register' %}">&nbsp;Create</a></span></p>
+    </span>
 </div>
 {% endblock %}
