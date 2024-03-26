@@ -4,7 +4,7 @@
   font-family: sans-serif;
 }
 body{
-  background-color: #fff4ff;
+  background-color: #fff;
 }
 .site{
   margin: 1rem;
@@ -25,6 +25,7 @@ img{
 }
 .container{
   padding: 1rem 0;
+  display: grid;
 }
 #cta{
   font-size: 1.5rem;
@@ -37,13 +38,14 @@ img{
   width: 85%;
 }
 .log{
-  width: 20rem
+  width: 20rem;
 }
-input{
+input, select{
   width: 18rem;
   height: 2.5rem;
   padding-left: 10px;
-  margin: 8px 0;
+  padding-right: 8px;
+  margin: 10px 0;
   font-size: 0.9rem;
   border: none;
   outline: none;
@@ -77,4 +79,53 @@ button{
   border: none;
   border-radius: 10px;
   margin: 10px 0;
+}
+option{
+  background-color: #fff4ff;
+}
+.lgscreen{
+  display: none;
+}
+.drs{
+  display: flex;
+  justify-content: center;
+  margin-top: 6rem;
+}
+#profile{
+  margin-bottom: 1rem;
+  padding: 3px;
+  width: 100px;
+  height: 100px;
+  border: #4e0445 1px solid;
+  border-radius: 50%;
+  background-color: #fdd0fe;
+  object-fit: cover;
+}
+#id_profile_picture{
+  display: none;
+}
+
+@media (min-width: 1024px){
+  .drs{
+    flex-direction: row-reverse;
+    margin: 6rem 4rem;
+  }
+  .reg{
+    width: 25rem;
+  }
+  .lgscreen{
+    display: block;
+  }
+  .flogo{
+    width: 370px;
+  }
+  .log{
+    width: 23rem;
+  }
+  input, select{
+    width: 20rem;
+    height: 3rem;
+    padding-left: 12px;
+    margin: 13px 0;
+  }
 }

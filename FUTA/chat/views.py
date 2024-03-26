@@ -23,7 +23,7 @@ def createAccount(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('profile/onboarding   ')
+            return redirect('profile/onboarding')
         else:
             return render(request, 'registration/createAccount.html', {'form': form, 'signUp': 'Title'})
     else:

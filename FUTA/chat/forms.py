@@ -37,7 +37,7 @@ class UserProfileForm(forms.ModelForm):
             'matricNumber': forms.TextInput(attrs={'placeholder': 'DEPT/XX/XXXX', 'class': 'custom-input'}),
             'Department': forms.TextInput(attrs={'placeholder': 'Department', 'class': 'custom-input'}),
             'faculty': forms.Select(attrs={'placeholder': 'Faculty', 'class': 'custom-input'}),
-            'profile_picture': forms.FileInput(attrs={'class': 'custom-input'}),
+            'profile_picture': forms.FileInput(attrs={'class': 'custom-input badass'}),
             'user': forms.HiddenInput()
         }
 

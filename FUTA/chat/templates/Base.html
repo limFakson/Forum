@@ -11,12 +11,7 @@
   <body>
     <div class="site">
       <div class="nav">
-        {% if user.is_authenticated %}
-        <div class="navbar">
-          <div class="logo">
-            <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
-          </div>
-        </div>
+        {% if Home %}
         {% else %}
         <div class="logpg-navbar">
           <div class="lgimg">
