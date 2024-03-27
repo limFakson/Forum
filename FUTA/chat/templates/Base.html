@@ -9,15 +9,19 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
+    {% if Home %}
     <div class="site">
       <div class="nav">
-        {% if Home %}
-        {% else %}
-        <div class="logpg-navbar">
-          <div class="lgimg">
-            <img src="{% static 'media/images/FUTA-logo.png' %}" class="" alt="">
+        {% if user.is_authenticated %}
+        <div class="side_nav">
+          <div class="sidebar">
+            <div class="userpic"></div>
+            <div class="menuitems"></div>
           </div>
         </div>
+        {% else %}
+        
+        
         {% endif %}
       </div>
       <main>
@@ -31,6 +35,11 @@
         </footer>
       {% endcomment %}
     </div>
+    {% else %}
+    <main>
+      {% block registration %} {% endblock %}
+    </main>
+    {% endif %}
 
     <!--External Links-->
     

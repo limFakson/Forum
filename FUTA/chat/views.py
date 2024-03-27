@@ -41,7 +41,8 @@ def create_profile(request):
                 form.save()
                 return redirect('/home')
             else:
-                return redirect('user_profile_exists')
+                form.save()
+                return redirect('/home')
         else:
             form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
 

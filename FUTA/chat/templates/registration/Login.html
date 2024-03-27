@@ -1,25 +1,33 @@
 {% extends "Base.html" %} 
 {% load static %} 
 {% block title %} Log in to Forum{% endblock %}
-{% block content %}
-<div class="drs">
-  <div class="reg">
-    <div class="container">
-      <h3 id="cta">Log in to Forum</h3>
-    </div>
-    <div class="log">
-      <form class="shadow-lg" method="post" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Log in</button>
-      </form>
-      <span>
-        <p class="versa">Don't have an account?<span id="inlinelink"><a href="{% url 'register' %}">&nbsp;Create</a></span></p>
-      </span>
+{% block registration %}
+<div class="logpg-navbar">
+  <div class="lgimg">
+    <img src="{% static 'media/images/FUTA-logo.png' %}" class="" alt="">
   </div>
-  <div class="lgscreen">
-    <div class="flogo">
-      <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
+</div>
+<div class='login'>
+  <div class="drs">
+    <div class="reg">
+      <div class="container">
+        <h3 id="cta">Log in to Forum</h3>
+      </div>
+      <div class="log">
+        <form class="shadow-lg" method="post" action="">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Log in</button>
+        </form>
+        <span>
+          <p class="versa">Don't have an account?<span id="inlinelink"><a href="{% url 'register' %}">&nbsp;Create</a></span></p>
+        </span>
+      </div>
+    </div>
+    <div class="lgscreen">
+      <div class="flogo">
+        <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
+      </div>
     </div>
   </div>
 </div>

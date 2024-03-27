@@ -13,11 +13,11 @@ faculty_choices = [
     ]
 
 class UserProfile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
     matricNumber = models.CharField(max_length=100)
     Department = models.CharField(max_length=100)
     faculty = models.CharField(max_length=100, choices=faculty_choices)
-    profile_picture = models.ImageField(upload_to='profiles/', default='default.jpg')
+    profile_picture = models.ImageField(upload_to='profiles_img/', default='default.jpg')
 
     def __str__(self):
         return self.user.username

@@ -8,13 +8,23 @@ body{
 }
 .site{
   margin: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .nav{
-  margin: 10px 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.side_nav{
+  width: 25rem;
+  border: #4e0445 solid 2px;
+  height: 100vh;
 }
 .logpg-navbar{
   display: grid;
   justify-content: flex-start;
+  margin: 10px 1rem;
 }
 .lgimg{
   width: 60px;
@@ -45,7 +55,7 @@ input, select{
   height: 2.5rem;
   padding-left: 10px;
   padding-right: 8px;
-  margin: 10px 0;
+  margin: 8px 0;
   font-size: 0.9rem;
   border: none;
   outline: none;
@@ -89,7 +99,7 @@ option{
 .drs{
   display: flex;
   justify-content: center;
-  margin-top: 6rem;
+  margin-top: 3rem;
 }
 #profile{
   margin-bottom: 1rem;
@@ -106,9 +116,15 @@ option{
 }
 
 @media (min-width: 1024px){
+  .logpg-navbar{
+    display: none;
+  }
+  .login{
+    padding: 2rem 0;
+  }
   .drs{
     flex-direction: row-reverse;
-    margin: 6rem 4rem;
+    margin: 4rem;
   }
   .reg{
     width: 25rem;
