@@ -12,11 +12,38 @@
     {% if Home %}
     <div class="site">
       <div class="nav">
+        <span class="open-menu menu_i">
+          <i class="fa-solid fa-bars"></i>
+        </span>
         {% if user.is_authenticated %}
         <div class="side_nav">
+          <div class="nav-header">
+            <div class="lgimg">
+              <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
+            </div>
+            <span class="close-menu menu_i">
+              <i class="fa-solid fa-xmark"></i>
+            </span>
+          </div>
           <div class="sidebar">
-            <div class="userpic"></div>
-            <div class="menuitems"></div>
+            <div class="menuitems">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">{{ user.userprofile.get_faculty_display }}</a></li>
+                <li><a href="/">{{ user.userprofile.Department }}</a></li>
+                <li><a href="/">Account</a></li>
+                <li><a href="/">About</a></li>
+              </ul>
+            </div>
+            <div class="user">
+              <span>
+                <img src="{{ user.userprofile.profile_picture.url }}" class="userpics" alt="">
+              </span>
+              <span class="userdetails">
+                <h3 id="nav-username">{{ user.username|capfirst }}</h3>
+                <p id="nav-department">{{ user.userprofile.Department }}</p>
+              </span>
+            </div>
           </div>
         </div>
         {% else %}
@@ -27,14 +54,14 @@
       <main>
         {% block content %} {% endblock %}
       </main>
-      {% comment %}
+    </div>
+    {% comment %}
       <footer id="foot">
         <div>
           <p>&copy; 2024 FUTA Chat</p>
         </div>
         </footer>
       {% endcomment %}
-    </div>
     {% else %}
     <main>
       {% block registration %} {% endblock %}
@@ -45,6 +72,7 @@
     
     
     <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="https://kit.fontawesome.com/43b5f69107.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet" />

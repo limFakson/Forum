@@ -1,25 +1,13 @@
 * {
   box-sizing: border-box;
-  margin: auto;
   font-family: sans-serif;
 }
 body{
   background-color: #fff;
-}
-.site{
-  margin: 1rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  padding: 10px;
+  margin: 0;
 }
 .nav{
-  display: flex;
-  justify-content: flex-start;
-}
-.side_nav{
-  width: 25rem;
-  border: #4e0445 solid 2px;
-  height: 100vh;
 }
 .logpg-navbar{
   display: grid;
@@ -97,7 +85,7 @@ option{
   display: none;
 }
 .drs{
-  display: flex;
+  display: grid;
   justify-content: center;
   margin-top: 3rem;
 }
@@ -114,6 +102,56 @@ option{
 #id_profile_picture{
   display: none;
 }
+
+/* Homepage Navbar */
+
+.site{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem;
+  overflow-x: hidden;
+}
+.side_nav{
+  width: 19.5rem;
+  border-right: solid 1px #000;
+  height: 100vh;
+  z-index: 1;
+  position: absolute;
+  left: -100%;
+  top: 0;
+  padding: 1rem;
+  background-color: #fff;
+  transition: ease-in-out .5s;
+}
+.nav-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.menu_i{
+  font-size: 25px;
+  cursor: pointer;
+}
+ul{
+  list-style: none;
+}
+.user{
+  display: flex;
+  gap: 1rem;
+  height: 9rem;
+  background-color: #fff4ff;
+  border-radius: 10px 10px 0 0;
+}
+.userpics{
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+
+/* Resolution Style */
 
 @media (min-width: 1024px){
   .logpg-navbar{
@@ -144,4 +182,10 @@ option{
     padding-left: 12px;
     margin: 13px 0;
   }
+
+  /* Homepage Navbar */
+
+.site{
+  margin: 0 7rem;
+}
 }
