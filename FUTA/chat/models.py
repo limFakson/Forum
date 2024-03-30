@@ -17,17 +17,14 @@ class UserProfile(models.Model):
     matricNumber = models.CharField(max_length=100)
     Department = models.CharField(max_length=100)
     faculty = models.CharField(max_length=100, choices=faculty_choices)
-    profile_picture = models.ImageField(upload_to='profiles_img/', default='default.jpg')
+    profile_picture = models.ImageField(upload_to='files/profiles/')
 
     def __str__(self):
         return self.user.username
 
 class Posts(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.CharField(max_length=1200)
-    image = models.FileField(upload_to='static/media/images/', null=True, blank=True)
-
-class Videos(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)  
-    content = models.CharField(max_length=1000)
-    video = models.FileField(upload_to='static/media/videos/', null=True, blank=True, default='static/media/videos/Numbbug.mp4')
+    content = models.TextField()
+    post_media = models.FileField(upload_to='files/post/', null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)

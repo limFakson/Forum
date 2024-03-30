@@ -2,4 +2,14 @@
 {% load static %}
 {% block title %} Homepage|Futa Forum{% endblock %}
 {% block content %}
+<div class="column">
+    <div class="postcolumn">
+        <div class="postform">
+            <form action="POST">
+                {{ form.content }}
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

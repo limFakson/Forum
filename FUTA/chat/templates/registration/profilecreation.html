@@ -14,10 +14,10 @@
         {% if user.userprofile.profile_picture %}
         <img src="{{ user.userprofile.profile_picture.url }}" id="profile" alt="" onclick="uploadImage()">
         {% else %}
-        <img src="{% static 'media/images/plus.png' %}" id="profile" alt="" onclick="uploadImage()">
+        <img src="{% static 'media/images/plus.png' %}" id="profile plus" alt="" onclick="uploadImage()">
         {% endif %}
       </div>
-      <h3 id="cta">Welcome <span class="userWelcome">{{ user.username }}</span>.</h3>
+      <h3 id="cta">Welcome <span class="userWelcome">{{ user.username|capfirst }}</span>.</h3>
     </div>
     <div class="log">
       <form class="shadow-lg" method="post" action="" enctype="multipart/form-data">
