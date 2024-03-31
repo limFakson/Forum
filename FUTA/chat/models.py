@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+
 faculty_choices = [
         ('SOS', 'School of Science'),
         ('SOC', 'School of Computing'),

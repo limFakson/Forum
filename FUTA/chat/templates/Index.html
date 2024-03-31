@@ -10,6 +10,32 @@
             </form>
         </div>
     </div>
+    <div class="forum">
+        <div class="postdisplay">
+            {% for post in posts %}
+            <div class="post">
+                <div class="author">
+                    <div>
+                        <img src="{{ post.author.userprofile.profile_picture.url }}" id="authordp" alt="">
+                    </div>
+                    <div class="content">
+                        <span class="authordetails">
+                            <strong>{{ post.author.username|capfirst }}</strong>
+                            <p>·</p>
+                            <p>{{ post.created_at }}</p>
+                        </span>
+                        <p>{{ post.content|truncatewords:35 }}</p>
+                        {% if post.post_media %}
+                        <div class="postimg">
+                            <img src="{{ post.post_media.url }}" alt="">
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
 {% endblock %}

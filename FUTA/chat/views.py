@@ -19,7 +19,7 @@ def home(request):
     post = Posts.objects.all()
     return render(request,'Index.html',{
         'Home':'Title', 
-        'Posts':post, 
+        'posts':post, 
         'userprofile':userprofile
         })
 
