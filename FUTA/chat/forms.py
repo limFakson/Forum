@@ -2,7 +2,7 @@ import re
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import UserProfile
+from .models import UserProfile, Posts
 
 class UserRegistrationForm(UserCreationForm):
     firstname = forms.CharField(max_length=150, required=False, widget=forms.TextInput(attrs={'placeholder': 'Firstname', 'class': 'custom-input name'}))
@@ -19,16 +19,10 @@ class UserRegistrationForm(UserCreationForm):
         def clean(self):
             cleaned_data = super().clean()
             username = cleaned_data.get('username')
-            firstname = cleaned_data.get('firstname')
-            lastname = cleaned_data.get('lastname')
             email = cleaned_data.get('email')
 
             if User.objects.filter(username=username).exists():
                 self.add_error('username', 'Username already exists.')
-            if UserProfile.objects.filter(firstname=firstname).exists():
-                self.add_error('firstname', 'Firstname already exists.')
-            if UserProfile.objects.filter(lastname=lastname).exists():
-                self.add_error('lastname', 'Lastname already exists.')
             if UserProfile.object.filter(email=email).exists():
                 self.add_error('email', 'Email is associated to another user.')
 
@@ -53,5 +47,16 @@ class UserProfileForm(forms.ModelForm):
         if not pattern.match(matricNumber):
             raise forms.ValidationError('Invalid matric number format. Example format: EXX/19/1201')
         if UserProfile.objects.filter(matricNumber=matricNumber).exists():
-            raise forms.ValidationError('matic number is associated with another user.')
+            existing_userprofile = UserProfile.objects.get(matricNumber=matricNumber)
+            if existing_userprofile.user != self.instance.user:
+                raise forms.ValidationError('Matric number is associated with another user.')
         return matricNumber
+
+class UserPosts(forms.ModelForm):
+    class Meta:
+        model = Posts
+        fields = ['content', 'post_media']
+        widgets = {
+            'content': forms.Textarea(attrs={'placeholder': 'What do you want to talk about?','class': 'post-input'}),
+            'post_media': forms.FileInput(attrs={'class': 'media-input'})
+        }

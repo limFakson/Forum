@@ -1,16 +1,64 @@
 {% extends "Base.html" %} 
 {% load static %} 
-{% block title %} Create Account {% endblock %}
-{% block content %}
-<div class="log">
-  <form class="shadow-lg" method="post" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <p>Already have an account?<span id="inlinelink"><a href="{% url 'login' %}">&nbsp;Sign in</a></span></p>
-    {% for message in messages %}
-    <p class="text-danger">{{message}}</p>
-    {% endfor %}
-    <button type="submit">Continue</button>
-  </form>
+{% block title %} Create Account | It's happening{% endblock %}
+{% block registration %}
+<div class="logpg-navbar">
+  <div class="lgimg">
+    <img src="{% static 'media/images/FUTA-logo.png' %}" class="" alt="">
+  </div>
+</div>
+<div class="drs">
+  <div class="reg">
+    <div class="container">
+      <h3 id="cta">Create Account.</h3>
+    </div>
+    <div class="log">
+      <form class="shadow-lg" method="post" action="" id="form">
+        {% csrf_token %}
+        <p>
+          {{ form.firstname }}
+        </p>
+        <p>
+          {{ form.lastname }}
+        </p>
+        <p>
+          {{ form.username }}
+        </p>
+        <p>
+          {{ form.email }}
+        </p>
+        <p>
+          {{ form.password1 }}
+          <div class="error" id="error"></div>
+        </p>
+        <p>
+          {{ form.password2 }}
+        </p>
+        <button type="submit">Continue</button>
+      </form>
+      
+      <!--Error message display-->
+      {% if form.username.errors %}
+        <div class="error">{{ form.username.errors }}</div>
+      {% endif %}
+      {% if form.email.errors %}
+        <div class="error">{{ form.email.errors }}</div>
+      {% endif %}
+      
+      <div class="error">
+        {% for message in messages %}
+          <p class="text-danger">{{message}}</p>
+        {% endfor %}
+      </div>
+      <span>
+        <p class="versa">Already have an account?<span id="inlinelink"><a href="{% url 'login' %}">&nbsp;Sign in</a></span></p>
+      </span>
+    </div>
+  </div>
+  <div class="lgscreen">
+    <div class="flogo">
+      <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
+    </div>
+  </div>
 </div>
 {% endblock %}

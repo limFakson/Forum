@@ -2,20 +2,26 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 
 
-from .forms import UserProfileForm, UserRegistrationForm
-from .models import UserProfile, Videos, Posts
+from .forms import UserProfileForm, UserRegistrationForm, UserPosts
+from .models import UserProfile, Posts
 
 
 # Create your views here.
 @login_required(login_url="/forum/login")
 def home(request):
+    if request.method == 'POST':
+        form = UserPosts(request.POST)
+
     userprofile = UserProfile.objects.get(user=request.user)
     post = Posts.objects.all()
-    video = Videos.objects.all()
-    return render(request,'Index.html',{'Home':'Title', 'Posts':post, 'Videos':video, 'userprofile':userprofile})
+    return render(request,'Index.html',{
+        'Home':'Title', 
+        'posts':post, 
+        'userprofile':userprofile
+        })
 
 def createAccount(request):
     if request.method == 'POST':
@@ -23,13 +29,12 @@ def createAccount(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('profile/create')
+            return redirect('profile/onboarding')
         else:
-            form = UserRegistrationForm()
-
+            return render(request, 'registration/createAccount.html', {'form': form, 'signUp': 'Title'})
     else:
         form = UserRegistrationForm()
-    
+
     return render(request, 'registration/createAccount.html', {'form': form, 'signUp': 'Title'})
 
 @login_required(login_url="/forum/login")
@@ -42,7 +47,8 @@ def create_profile(request):
                 form.save()
                 return redirect('/home')
             else:
-                return redirect('user_profile_exists')
+                form.save()
+                return redirect('/home')
         else:
             form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
 

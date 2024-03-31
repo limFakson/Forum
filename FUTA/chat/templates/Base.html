@@ -6,34 +6,112 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/log.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}" />
+    <script src="{% static 'js/body.js' %}"></script>
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body>
-    <header class="header">
-      <div class="logobox">
-        <a href="{% url 'Homepage' %}">
-          <img class="logo" alt="" src="{% static 'media/images/Futalogo.jpg' %}"/>
-        </a>
-      </div>
-      <div class="navbar">
-        {% if user.is_authenticated %}{% endif %}
-      </div>
-    </header>
-    <main>
-    {% block content %} {% endblock %}
-    </main>
+    {% if Home %}
+    <div class="site">
+      <header class="nav">
+        <div class="top">
+          <div class="top-nav">
+            <div class="nav-top">
+              <span class="open-menu menu_i">
+                <i class="bi bi-list"></i>
+              </span>
+              <div class="lgimg">
+                <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="side_nav">
+          <div class="exquis">
+            <div class="nav-header">
+              <div class="lgimg">
+                <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
+              </div>
+              <span class="close-menu menu_i">
+                <i class="bi bi-x-lg"></i>
+              </span>
+            </div>
+            <div class="sidebar">
+              <div class="menuitems">
+                <ul>
+                  <li>
+                    <a href="/">
+                      <i class="bi bi-house-door-fill"></i>
+                      <p>Home</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/">
+                      <i class="bi bi-buildings-fill"></i>
+                      <p>{{ user.userprofile.faculty }}</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/">
+                      <i class="bi bi-people-fill"></i>
+                      <p>{{ user.userprofile.Department }}</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/">
+                      <i class="bi bi-person-fill"></i>
+                      <p>Account</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/">
+                      <i class="bi bi-card-list"></i>
+                      <p>About</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="user" onclick="account()">
+                <span>
+                  <img src="{{ user.userprofile.profile_picture.url }}" class="userpics" alt="">
+                </span>
+                <span class="userdetails">
+                  <h3 id="nav-username">{{ user.username|capfirst }}</h3>
+                  <p id="nav-department">{{ user.userprofile.Department }}</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% else %}
+        
+        
+        {% endif %}
+      </header>
+      <main>
+        {% block content %} {% endblock %}
+      </main>
+    </div>
     {% comment %}
-    <footer id="foot">
-      <div>
-        <p>&copy; 2024 FUTA Chat</p>
-      </div>
-      </footer>
-    {% endcomment %}
+      <footer id="foot">
+        <div>
+          <p>&copy; 2024 FUTA Chat</p>
+        </div>
+        </footer>
+      {% endcomment %}
+    {% else %}
+    <main>
+      {% block registration %} {% endblock %}
+    </main>
+    {% endif %}
 
     <!--External Links-->
     
     
-    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="{% static 'js/onboarding.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/home.js' %}"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet" />

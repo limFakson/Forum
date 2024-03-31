@@ -1,43 +1,52 @@
 {% extends "Base.html" %} 
 {% load static %}
-{% block content %}
-<div>
-  <div class="log">
-    <form class="shadow" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <h4>Welcome <span class="userWelcome">{{user.username}}</span></h4>
+{% block title %} Create Profile | Onboarding{% endblock %}
+{% block registration %}
+<div class="logpg-navbar">
+  <div class="lgimg">
+    <img src="{% static 'media/images/FUTA-logo.png' %}" class="" alt="">
+  </div>
+</div>
+<div class="drs">
+  <div class="reg">
+    <div class="container">
       <div>
-        <img
-          class="shadow-lg select-pic"
-          id="profile-pic"
-          src="{% static 'media/images/upload.png' %}"
-          alt="Profile Picture"
-          onclick="uploadImage()" />
-        <input type="file" id="file-input" style="display: none" />
+        {% if user.userprofile.profile_picture %}
+        <img src="{{ user.userprofile.profile_picture.url }}" id="profile" alt="" onclick="uploadImage()">
+        {% else %}
+        <img src="{% static 'media/images/plus.png' %}" id="profile plus" alt="" onclick="uploadImage()">
+        {% endif %}
       </div>
-      <p class="text-danger">{{ form.matricNumber.errors }}</p>
-      <p>
-        <!-- Display any form validation errors for matricNumber field -->
-      </p>
-
-      <div>
-        <label for="id_matricNumber">Matric Number</label>
-        {{ form.matricNumber }}
-      </div>
-      {{ form.faculty.errors }}
-      <!-- Display any form validation errors for faculty field -->
-      <div>
-        <label for="id_faculty">Faculty</label>
-        {{ form.faculty }}
-      </div>
-      {{ form.Department.errors }}
-      <!-- Display any form validation errors for department field -->
-      <div>
-        <label for="id_department">Department</label>
-        {{ form.Department }}
-      </div>
-      <button id="logbtn" class="shadow" type="submit">Submit</button>
-    </form>
+      <h3 id="cta">Welcome <span class="userWelcome">{{ user.username|capfirst }}</span>.</h3>
+    </div>
+    <div class="log">
+      <form class="shadow-lg" method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+          {{ form.profile_picture }}
+        </p>
+        <p>
+          {{ form.matricNumber }}
+        </p>
+        <p>
+          {{ form.Department }}
+        </p>
+        <p>
+          {{ form.faculty }}
+        </p>
+        <button type="submit">Create</button>
+      </form>
+      
+      <!--Error message display-->
+      {% if form.matricNumber.errors %}
+        <div class="error">{{ form.matricNumber.errors }}</div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="lgscreen">
+    <div class="flogo">
+      <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
+    </div>
   </div>
 </div>
 {% endblock %}
