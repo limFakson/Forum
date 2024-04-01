@@ -6,9 +6,19 @@
 <div class="column">
     <div class="row-feeds">
         <div class="postcolumn">
+            <div class="mobile_post">
+                <div class="post_icon">
+                    <i class="bi bi-plus-lg"></i>
+                </div>
+            </div>
             <div class="postform">
+                <div>
+                    <img src="{{ userprofile.profile_picture.url }}" id="authordp" alt="">
+                </div>
                 <form action="POST">
-                    <!-- {{ form.content }} -->
+                    <span class="post_input">
+                        {{ form.content }}
+                    </span>
                 </form>
             </div>
         </div>

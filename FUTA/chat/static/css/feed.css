@@ -16,6 +16,35 @@
 .postcolumn{
     margin: 10px 0;
 }
+.post_icon{
+    background-color: #f979f3;
+    font-size: 40px;
+    font-weight: 900;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 10px;
+    bottom: 20px;
+}
+.postform{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+.post_input{}
+textarea{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 1rem;
+    resize: none;
+}
 .post_content{
     display: flex;
     justify-content: flex-start;

@@ -8,6 +8,18 @@ body{
   margin: 0;
   transition: ease-in .3s;
 }
+body.fadeIn {
+   animation: fadeIn 1000ms ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
 .logpg-navbar{
   display: grid;
   justify-content: flex-start;
@@ -136,10 +148,10 @@ option{
   border-bottom: 1px #000 solid;
 }
 .nav-top{
-  width: 55%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 10px;
 }
 .top{
   width: 100%;
@@ -161,7 +173,11 @@ option{
   position: fixed;
   height: 100%;
   padding: 1rem;
+  padding-bottom: 2rem;
   border-right: 1px #000 solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .nav-header{
   display: flex;
@@ -174,6 +190,9 @@ option{
   font-size: 30px;
   font-weight: 800;
   cursor: pointer;
+}
+.search-bar{
+  font-size: 25px;
 }
 ul a{
   text-decoration: none;
@@ -191,11 +210,12 @@ ul i{
 ul li{
   list-style: none;
   font-size: 27px;
-  margin: 0.4rem;
-  padding: 0.8rem 0;
+  margin: 25px 0;
+  padding: 10px;
 }
 .sidebar{
-  height: 36rem;
+  margin-left: 10px;
+  height: 38rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -290,7 +310,7 @@ ul li{
     width: 16rem;
   }
   .sidebar{
-    height: 32rem;
+    height: 33.4rem;
   }
 
 }
