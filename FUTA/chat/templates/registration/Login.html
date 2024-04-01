@@ -14,7 +14,7 @@
         <h3 id="cta">Log in to Forum</h3>
       </div>
       <div class="log">
-        <form class="shadow-lg" method="post" action="">
+        <form class="shadow-lg" method="post" class="form" action="">
           {% csrf_token %}
           {{ form.as_p }}
           <button type="submit">Log in</button>

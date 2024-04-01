@@ -17,5 +17,7 @@ def time_since(value):
     # Calculate the time difference
     diff = now() - localtime(value)
 
+    time_diff = timesince(value).split(',')[0].strip().replace(' ', '')
+    print(repr(time_diff))
     # Convert the time difference to a human-readable format
-    return timesince(value).split(', ')[0]
+    return timesince(value).split(',')[0]

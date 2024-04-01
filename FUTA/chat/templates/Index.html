@@ -1,39 +1,53 @@
 {% extends "Base.html" %} 
 {% load static %}
+{% load custom_time %}
 {% block title %} Homepage|Futa Forum{% endblock %}
 {% block content %}
 <div class="column">
-    <div class="postcolumn">
-        <div class="postform">
-            <form action="POST">
-                {{ form.content }}
-            </form>
+    <div class="row-feeds">
+        <div class="postcolumn">
+            <div class="postform">
+                <form action="POST">
+                    <!-- {{ form.content }} -->
+                </form>
+            </div>
         </div>
-    </div>
-    <div class="forum">
-        <div class="postdisplay">
-            {% for post in posts %}
-            <div class="post">
-                <div class="author">
-                    <div>
-                        <img src="{{ post.author.userprofile.profile_picture.url }}" id="authordp" alt="">
-                    </div>
-                    <div class="content">
-                        <span class="authordetails">
-                            <strong>{{ post.author.username|capfirst }}</strong>
-                            <p>·</p>
-                            <p>{{ post.created_at }}</p>
-                        </span>
-                        <p>{{ post.content|truncatewords:35 }}</p>
-                        {% if post.post_media %}
-                        <div class="postimg">
-                            <img src="{{ post.post_media.url }}" alt="">
+        <div class="forum">
+            <div class="postdisplay">
+                {% for post in posts %}
+                <div class="post">
+                    <div class="post_content">
+                        <div>
+                            <img src="{{ post.author.userprofile.profile_picture.url }}" id="authordp" alt="">
                         </div>
-                        {% endif %}
+                        <div class="author">
+                            <div class="authordetails">
+                                <strong>{{ post.author.username|capfirst }}</strong>
+                                <strong>·</strong>
+                                <p>{{ post.created_at|time_since }}</p>
+                            </div>
+                            <div class="content">
+                                <p>{{ post.content|truncatewords:35 }}</p>
+                                {% if post.post_media %}
+                                <div class="postimg">
+                                    <img src="{{ post.post_media.url }}" alt="">
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+        </div>
+    </div>
+    <div class="row-user_profile">
+        <div class="row-profile">
+            <div class="search">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="search" class="searchbar">
+            </div>
+            <div class="user_profile"></div>
         </div>
     </div>
 </div>
