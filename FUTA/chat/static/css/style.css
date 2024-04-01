@@ -281,13 +281,13 @@ ul li{
     position: relative;
   }
   .side_nav{
-    width: 20rem;
+    width: 16rem;
     z-index: 0;
     position: relative;
     left: 0;
   }
   .exquis{
-    width: 20rem;
+    width: 16rem;
   }
   .sidebar{
     height: 32rem;

@@ -1,3 +1,8 @@
+@media (max-width: 1023px){
+    .row-user_profile{
+        display: none;
+    }
+}
 .column{
     display: flex;
     justify-content: flex-start;
@@ -6,8 +11,6 @@
 }
 /* Feeds row */
 .row-feeds{
-    width: 33rem;
-    border-right: 1px #000 solid;
     padding-top: 10px;
 }
 .postcolumn{
@@ -26,25 +29,30 @@
     padding-bottom: 8px;
 }
 #authordp{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
 .post{
     border-bottom: solid #000 0.5px;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 1rem 1rem;
     margin: 8px 0;
 }
+.postimg{
+    margin-top: 10px;
+    display: grid;
+}
+.postimg img{
+    border-radius: 10px;
+}
 
-/* User row */
+/* User feed */
 .row-user_profile{
-    width: 20rem;
     position: relative;
 }
 .row-profile{
     position: fixed;
-    width: 20rem;
     margin: 0 1rem;
     padding-top: 10px;
 }
@@ -64,7 +72,8 @@
     background-color: transparent;
 }
 
-@media (min-width: 1024px){
+
+@media (min-width: 1024px) and (max-width: 1260px){
     /* Home Feed style */
     #authordp{
         width: 50px;
@@ -72,4 +81,46 @@
         border-radius: 50%;
         object-fit: cover;
     }
+    .row-feeds{
+        width: 25rem;
+        border-right: 1px #000 solid;
+    }
+    /* User row */
+    .row-user_profile{
+        width: 15rem;
+        position: relative;
+    }
+    .row-profile{
+        width: 15rem;
+    }
+    .postimg{
+        margin-top: 10px;
+        display: grid;
+        border-radius: 10px;
+    }
+}
+@media (min-width: 1261px){
+    .side_nav{
+        width: 20rem;
+    }
+    .exquis{
+        width: 20rem;
+    }
+    /* Home feed style */
+    .row-feeds{
+        width: 33rem;
+        border-right: 1px #000 solid;
+    }
+    /* User row */
+    .row-user_profile{
+        width: 20rem;
+        position: relative;
+    }
+    .row-profile{
+        position: fixed;
+        width: 20rem;
+        margin: 0 1rem;
+        padding-top: 10px;
+    }
+
 }
