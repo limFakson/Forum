@@ -8,6 +8,18 @@ body{
   margin: 0;
   transition: ease-in .3s;
 }
+body.fadeIn {
+   animation: fadeIn 1000ms ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
 .logpg-navbar{
   display: grid;
   justify-content: flex-start;
@@ -25,6 +37,9 @@ img{
   padding: 1rem 0;
   display: grid;
 }
+.container div{
+  justify-self: center;
+}
 #cta{
   font-size: 1.5rem;
   font-weight: 600;
@@ -33,22 +48,29 @@ img{
 .reg{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 85%;
 }
 .log{
   width: 20rem;
 }
 input, select{
-  width: 18rem;
+  width: 18.8rem;
   height: 2.5rem;
-  padding-left: 10px;
-  padding-right: 8px;
+  padding: 0 10px;
   margin: 8px 0;
   font-size: 0.9rem;
   border: none;
   outline: none;
   border-radius: 8px;
   background-color: #fdd0fe;
+}
+.shadow-lg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 /* label{
   display: none;
@@ -90,7 +112,7 @@ option{
   justify-content: center;
   align-items: center;
   gap: 7rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 #plus{
   padding: 18px;
@@ -113,7 +135,7 @@ option{
 /* Homepage Navbar */
 
 .site{
-  justify-content: flex-start;
+  justify-content: center;
   overflow-x: hidden;
 }
 .top-nav{
@@ -126,10 +148,10 @@ option{
   border-bottom: 1px #000 solid;
 }
 .nav-top{
-  width: 55%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 10px;
 }
 .top{
   width: 100%;
@@ -151,7 +173,11 @@ option{
   position: fixed;
   height: 100%;
   padding: 1rem;
+  padding-bottom: 2rem;
   border-right: 1px #000 solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .nav-header{
   display: flex;
@@ -164,6 +190,9 @@ option{
   font-size: 30px;
   font-weight: 800;
   cursor: pointer;
+}
+.search-bar{
+  font-size: 25px;
 }
 ul a{
   text-decoration: none;
@@ -181,15 +210,15 @@ ul i{
 ul li{
   list-style: none;
   font-size: 27px;
-  margin: 0.4rem;
-  padding: 0.8rem 0;
+  margin: 25px 0;
+  padding: 10px;
 }
 .sidebar{
-  height: 34rem;
+  margin-left: 10px;
+  height: 38rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 1.5rem;
 }
 .user{
   display: flex;
@@ -219,35 +248,7 @@ ul li{
   color: #00000074;
 }
 
-/* Home feed post style */
-.column{
-  margin-top: 10px;
-}
-.author{
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: auto;
-  gap: 1rem;
-}
-.authordetails{
-  display: flex;
-  gap: 10px;
-}
-#authordp{
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.post{
-  border-bottom: solid #000 0.5px;
-  padding: 1rem;
-  margin: 8px 0;
-}
-
 /* Resolution Style */
-
 @media (min-width: 1024px){
 .nav{
   margin-left: 0;
@@ -288,7 +289,7 @@ ul li{
 
   .site{
     display: flex;
-    margin: 0 7rem;
+    margin: 0 3rem;
   }
   .top{
     display: none;
@@ -300,18 +301,16 @@ ul li{
     position: relative;
   }
   .side_nav{
-    width: 21rem;
+    width: 16rem;
     z-index: 0;
     position: relative;
     left: 0;
   }
-  
-  /* Home Feed style */
-  #authordp{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
+  .exquis{
+    width: 16rem;
+  }
+  .sidebar{
+    height: 33.4rem;
   }
 
 }
