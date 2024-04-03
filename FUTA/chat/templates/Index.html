@@ -1,7 +1,7 @@
 {% extends "Base.html" %} 
 {% load static %}
 {% load custom_time %}
-{% block title %} Homepage|Futa Forum{% endblock %}
+{% block title %} Homepage | Futa Forum{% endblock %}
 {% block content %}
 <div class="column">
     <div class="row-feeds">
@@ -15,11 +15,23 @@
                 <div>
                     <img src="{{ userprofile.profile_picture.url }}" id="authordp" alt="">
                 </div>
-                <form action="POST">
-                    <span class="post_input">
-                        {{ form.content }}
-                    </span>
-                </form>
+                <div class="form_input">
+                    <form action="POST" class="post_input" enctype="multipart/form-data" id="postInput">
+                        {% csrf_token %}
+                        <span>
+                            {{ form.content }}
+                        </span>
+                        <p class="media_upload">
+                            {{ form.post_media }}
+                        </p>
+                    </form>
+                    <div class="media-icon">
+                        <span class="media_upload-icon">
+                            <i class="bi bi-card-image" onclick="mediaUpload()"></i>
+                            <i class="bi bi-file-earmark-pdf" onclick="mediaUpload()"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="forum">

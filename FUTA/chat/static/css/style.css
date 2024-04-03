@@ -146,6 +146,7 @@ option{
   position: fixed;
   background-color: #fff;
   border-bottom: 1px #000 solid;
+  z-index: 1;
 }
 .nav-top{
   display: flex;
@@ -178,6 +179,7 @@ option{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 1;
 }
 .nav-header{
   display: flex;
