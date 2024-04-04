@@ -11,7 +11,7 @@ document.getElementById('id_post_media').addEventListener('change', function() {
         reader.onload = function(event) {
             const mediaDisplay = document.createElement('img');
             mediaDisplay.src = event.target.result;
-            document.getElementById('postInput').appendChild(mediaDisplay); 
+            document.getElementById('media').appendChild(mediaDisplay); 
         }
         reader.readAsDataURL(file);
     }

@@ -12,21 +12,25 @@ from .models import UserProfile, Posts
 # Create your views here.
 @login_required(login_url="/forum/login")
 def home(request):
-    form = UserPosts()
-    if request.method == 'POST':
-        form = UserPosts(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('')
-
     userprofile = UserProfile.objects.get(user=request.user)
     post = Posts.objects.all()
-    return render(request,'Index.html',{
-        'Home':'Title', 
-        'posts':post, 
-        'userprofile':userprofile,
+
+    if request.method == 'POST':
+        form = UserPosts(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('/home')
+    else:
+        form = UserPosts()
+
+    return render(request, 'Index.html', {
+        'Home': 'Title',
+        'posts': post,
+        'userprofile': userprofile,
         'form': form
-        })
+    })
 
 def createAccount(request):
     if request.method == 'POST':

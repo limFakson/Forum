@@ -16,7 +16,7 @@
                     <img src="{{ userprofile.profile_picture.url }}" id="authordp" alt="">
                 </div>
                 <div class="form_input">
-                    <form action="POST" class="post_input" enctype="multipart/form-data" id="postInput">
+                    <form method="post" class="post_input" enctype="multipart/form-data" id="postInput">
                         {% csrf_token %}
                         <span>
                             {{ form.content }}
@@ -24,6 +24,8 @@
                         <p class="media_upload">
                             {{ form.post_media }}
                         </p>
+                        <div id="media"></div>
+                        <button type="submit">Post</button>
                     </form>
                     <div class="media-icon">
                         <span class="media_upload-icon">
@@ -67,7 +69,7 @@
         <div class="row-profile">
             <div class="search">
                 <i class="bi bi-search"></i>
-                <input type="text" placeholder="search" class="searchbar">
+                <input type="text" placeholder="Search" class="searchbar">
             </div>
             <div class="user_profile"></div>
         </div>
