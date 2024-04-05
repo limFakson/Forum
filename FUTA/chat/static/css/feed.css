@@ -10,12 +10,13 @@
     gap: 1rem;
 }
 /* Feeds row */
-.row-feeds{
-    padding-top: 10px;
-}
 .postcolumn{
     margin: 10px 0;
+    margin-top: 2rem;
     position: relative;
+}
+.mobile_post{
+    display: none;
 }
 .post_icon{
     background-color: #8f1983;
@@ -30,6 +31,7 @@
     position: fixed;
     right: 10px;
     bottom: 20px;
+    cursor: pointer;
 }
 .postform{
     display: flex;
@@ -124,8 +126,8 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    padding: 0 10px;
-    margin: 1rem;
+    padding: 0 1rem;
+    margin: 1rem 0;
     background-color: #eeeeee;
     border-radius: 15px;
 }
@@ -135,6 +137,20 @@
     background-color: transparent;
 }
 
+@media (min-width: 640px) and (max-width: 1023px){
+    .postcolumn{
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 639px){
+    .postform{
+        display: none;
+    }
+    .mobile_post{
+        display: block;
+    }
+}
 
 @media (min-width: 1024px) and (max-width: 1260px){
     /* Home Feed style */

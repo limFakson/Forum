@@ -12,7 +12,11 @@ document.getElementById('id_post_media').addEventListener('change', function() {
             const mediaDisplay = document.createElement('img');
             mediaDisplay.src = event.target.result;
             document.getElementById('media').appendChild(mediaDisplay); 
+            mediaDisplay.style.borderRadius = '15px';
+            mediaDisplay.style.height = '170px';
         }
         reader.readAsDataURL(file);
     }
 });
+
+function postPage() {};

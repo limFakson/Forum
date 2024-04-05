@@ -13,7 +13,7 @@ from .models import UserProfile, Posts
 @login_required(login_url="/forum/login")
 def home(request):
     userprofile = UserProfile.objects.get(user=request.user)
-    post = Posts.objects.all()
+    post = Posts.objects.all().order_by('-created_at')
 
     if request.method == 'POST':
         form = UserPosts(request.POST, request.FILES)
