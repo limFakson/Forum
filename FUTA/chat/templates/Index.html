@@ -25,14 +25,14 @@
                             {{ form.post_media }}
                         </p>
                         <div id="media"></div>
-                        <button type="submit">Post</button>
+                        <div class="media-icon">
+                            <span class="media_upload-icon">
+                                <i class="bi bi-card-image" onclick="mediaUpload()"></i>
+                                <i class="bi bi-file-earmark-pdf" onclick="mediaUpload()"></i>
+                            </span>
+                            <button type="submit">Post</button>
+                        </div>
                     </form>
-                    <div class="media-icon">
-                        <span class="media_upload-icon">
-                            <i class="bi bi-card-image" onclick="mediaUpload()"></i>
-                            <i class="bi bi-file-earmark-pdf" onclick="mediaUpload()"></i>
-                        </span>
-                    </div>
                 </div>
             </div>
         </div>

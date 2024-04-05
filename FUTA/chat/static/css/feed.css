@@ -69,12 +69,13 @@
 }
 .media-icon{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 .media_upload-icon i{
     font-size: 25px;
     color: #8f1983;
+    margin: 0 5px;
     cursor: pointer;
 
 }
@@ -124,7 +125,7 @@
     align-items: center;
     gap: 10px;
     padding: 0 10px;
-    margin: 1rem 0;
+    margin: 1rem;
     background-color: #eeeeee;
     border-radius: 15px;
 }
