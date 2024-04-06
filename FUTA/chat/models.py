@@ -26,6 +26,7 @@ class UserProfile(models.Model):
 class Posts(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
-    post_media = models.FileField(upload_to='files/post/', null=True, blank=True)
+    image = models.ImageField(upload_to='files/post/image', null=True, blank=True)
+    docm = models.FileField(upload_to='files/post/doc', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)

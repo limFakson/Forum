@@ -69,6 +69,26 @@
 .media_upload{
     display: none;
 }
+#media{
+    margin: 1rem;
+}
+.docm{
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    background-color: #eeeeee;
+    width: fit-content;
+    padding: 10px 1.5rem 10px 1rem;
+    margin: 10px;
+}
+.doc{
+    width: 40px;
+}
+.docm span{
+    font-size: 12px;
+    font-weight: 400;
+}
 .media-icon{
     display: flex;
     justify-content: space-between;
@@ -104,6 +124,33 @@
     padding: 1rem 1.5rem 1rem 1rem;
     margin: 8px 0;
 }
+.post-content{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+}
+.postdoc{
+    margin-top: 10px;
+    position: relative;
+    width: 100px;
+    justify-self: end;
+}
+.post_doc{
+    width: 100%;
+    height: 100px;
+}
+.docdetails{
+    position: absolute;
+    background-color: #eeeeee;
+    padding: 1rem;
+    bottom: 1px;
+}
+.docdetails span{
+    font-size: 10px;
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+}
 .postimg{
     margin-top: 10px;
     display: grid;
@@ -135,6 +182,19 @@
     width: 100%;
     height: 100%;
     background-color: transparent;
+}
+
+@media (min-width: 1024px){
+    .postdoc{
+        margin-top: 10px;
+        position: relative;
+        width: 180px;
+        justify-self: end;
+    }
+    .post_doc{
+        width: 100%;
+        height: 175px;
+    }
 }
 
 @media (min-width: 640px) and (max-width: 1023px){
@@ -187,7 +247,7 @@
     }
     /* Home feed style */
     .row-feeds{
-        width: 33rem;
+        width: 35rem;
         border-right: 1px #000 solid;
     }
     /* User row */
