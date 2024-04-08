@@ -55,8 +55,7 @@ class UserProfileForm(forms.ModelForm):
 class UserPosts(forms.ModelForm):
     class Meta:
         model = Posts
-        fields = ['content', 'post_media']
+        fields = ['content', 'image', 'docm']
         widgets = {
-            'content': forms.Textarea(attrs={'placeholder': 'What do you want to talk about?','class': 'post-input'}),
-            'post_media': forms.FileInput(attrs={'class': 'media-input'})
+            'content': forms.Textarea(attrs={'placeholder': 'What do you have in mind?'}),
         }

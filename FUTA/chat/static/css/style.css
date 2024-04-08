@@ -114,7 +114,7 @@ option{
   gap: 7rem;
   margin-top: 4rem;
 }
-#plus{
+.plus{
   padding: 18px;
 }
 #profile{
@@ -146,6 +146,7 @@ option{
   position: fixed;
   background-color: #fff;
   border-bottom: 1px #000 solid;
+  z-index: 1;
 }
 .nav-top{
   display: flex;
@@ -178,6 +179,7 @@ option{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 1;
 }
 .nav-header{
   display: flex;
@@ -209,9 +211,15 @@ ul i{
 }
 ul li{
   list-style: none;
-  font-size: 27px;
-  margin: 25px 0;
+  font-size: 20px;
+  margin: 20px 0;
   padding: 10px;
+}
+ul li i{
+  font-size: 25px;
+}
+ul p{
+  line-height: 24px;
 }
 .sidebar{
   margin-left: 10px;
@@ -219,6 +227,7 @@ ul li{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 2rem;
 }
 .user{
   display: flex;
@@ -310,7 +319,7 @@ ul li{
     width: 16rem;
   }
   .sidebar{
-    height: 33.4rem;
+    height: 32rem;
   }
 
 }

@@ -1,13 +1,13 @@
 {% extends "Base.html" %} 
 {% load static %}
 {% load custom_time %}
-{% block title %} Homepage|Futa Forum{% endblock %}
+{% block title %} Homepage | Futa Forum{% endblock %}
 {% block content %}
 <div class="column">
     <div class="row-feeds">
         <div class="postcolumn">
             <div class="mobile_post">
-                <div class="post_icon">
+                <div class="post_icon" onclick="postPage()">
                     <i class="bi bi-plus-lg"></i>
                 </div>
             </div>
@@ -15,11 +15,35 @@
                 <div>
                     <img src="{{ userprofile.profile_picture.url }}" id="authordp" alt="">
                 </div>
-                <form action="POST">
-                    <span class="post_input">
-                        {{ form.content }}
-                    </span>
-                </form>
+                <div class="form_input">
+                    <form method="post" class="post_input" enctype="multipart/form-data" id="postInput">
+                        {% csrf_token %}
+                        <span>
+                            {{ form.content }}
+                        </span>
+                        <p class="media_upload">
+                            {{ form.image }}
+                            {{ form.docm }}
+                        </p>
+                        <div id="media">
+                            <div class="docm" id="docm">
+                                <img src="{% static 'media/images/pdf_logo.jpg' %}" alt="" class="doc">
+                                <div>
+                                    <p><span id="documentName"></span></p>
+                                    <p><span id="documentSize"></span></p>
+                                    <p><span id="documentType"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media-icon">
+                            <span class="media_upload-icon">
+                                <i class="bi bi-card-image" onclick="imgUpload()"></i>
+                                <i class="bi bi-file-earmark-pdf" onclick="docUpload()"></i>
+                            </span>
+                            <button type="submit">Post</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="forum">
@@ -38,10 +62,39 @@
                             </div>
                             <div class="content">
                                 <p>{{ post.content|truncatewords:35 }}</p>
-                                {% if post.post_media %}
-                                <div class="postimg">
-                                    <img src="{{ post.post_media.url }}" alt="">
-                                </div>
+                                {% if post.image or post.docm %}
+                                    {% if post.image and post.docm %}
+                                        <!-- Display both image and document -->
+                                        <div class="post-content">
+                                            <div class="postimg">
+                                                <img src="{{ post.image.url }}" alt="Image">
+                                            </div>
+                                            <div class="postdoc">
+                                                <a href="{{ post.docm.url }}" id="documentLink" target="_blank">
+                                                    <diiv class="postdoc">
+                                                        <img src="{% static 'media/images/pdf_logo.jpg' %}" alt="" class="post_doc">
+                                                        <div class="docdetails">
+                                                            <p><span id="documentpName"></span></p>
+                                                        </div>
+                                                    </diiv>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% elif post.image %}
+                                        <!-- Display only image -->
+                                        <div class="post-content">
+                                            <div class="postimg">
+                                                <img src="{{ post.image.url }}" alt="Image">
+                                            </div>
+                                        </div>
+                                    {% elif post.docm %}
+                                        <!-- Display only document -->
+                                        <div class="post-content">
+                                            <div class="postdoc">
+                                                <a href="{{ post.docm.url }}" target="_blank">View Document</a>
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                 {% endif %}
                             </div>
                         </div>
@@ -55,7 +108,7 @@
         <div class="row-profile">
             <div class="search">
                 <i class="bi bi-search"></i>
-                <input type="text" placeholder="search" class="searchbar">
+                <input type="text" placeholder="Search" class="searchbar">
             </div>
             <div class="user_profile"></div>
         </div>
