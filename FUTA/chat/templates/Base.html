@@ -3,6 +3,7 @@
   <head>
     {% load static %}
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!-- <meta http-equiv="refresh" content="30"> -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/feed.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}" />
@@ -75,6 +76,15 @@
                     </a>
                   </li>
                 </ul>
+                <div class="mode" onclick="switchMode()">
+                  <p> <span id="mode">Dark Mode</span></p>
+                  <span id="dark">
+                    <i class="bi bi-moon-stars-fill"></i>
+                  </span>
+                  <span id="light" style="display: none;">
+                    <i class="bi bi-brightness-high-fill"></i>
+                  </span>
+                </div>
               </div>
               <div class="user" onclick="account()">
                 <span>

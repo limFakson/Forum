@@ -16,4 +16,25 @@ document.addEventListener("DOMContentLoaded", function() {
             bodyElements[i].classList.add('fadeIn');
         }
     }
+
 });
+
+let toggler = true;
+
+function switchMode(){
+    toggler = !toggler
+    
+    const darkmode = document.getElementById('dark');
+    const lightmode = document.getElementById('light');
+    const mode = document.getElementById("mode");
+
+    if(toggler){
+        lightmode.style.display = 'none';
+        darkmode.style.display = 'block';
+        mode.textContent = 'Dark Mode';
+    }else{
+        lightmode.style.display = 'block';   
+        darkmode.style.display = 'none';
+        mode.textContent = 'Light Mode';
+    }
+}   

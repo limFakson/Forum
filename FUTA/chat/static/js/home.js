@@ -63,8 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const url = documentLink.href;
     const urlParts = url.split('/');
     const filename = urlParts[urlParts.length - 1];
-    const displayName = filename.length > 15 ? filename.substring(0, 15) + '...' : filename;
+    const displayName = filename.length > 25 ? filename.substring(0, 25) + '...' : filename;
     documentNameElement.textContent = displayName;
 });
 
 function postPage() {};
+
