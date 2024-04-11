@@ -39,6 +39,7 @@
     align-items: flex-start;
     gap: 1rem;
     padding: 1rem;
+    padding-right: 0;
     border: #000 1px solid;
     border-left: none;
     border-right: none;
@@ -55,13 +56,16 @@
 }
 .post_input textarea{
     width: 100%;
-    height: 4rem;
+    height: 5rem;
     outline: none;
     border: none;
     padding: 1rem;
     resize: none;
     font-weight: 400;
     font-size: 15px;
+}
+textarea:focus{
+    border-bottom: 1px #000 solid;
 }
 .post_input button{
     justify-self: end;
@@ -70,7 +74,7 @@
     display: none;
 }
 #media{
-    margin: 1rem;
+    margin-top: 10px;
 }
 .docm{
     display: none;
@@ -93,6 +97,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 10px;
 }
 .media_upload-icon i{
     font-size: 25px;

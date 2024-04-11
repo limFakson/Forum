@@ -36,7 +36,7 @@ document.getElementById('id_docm').addEventListener('change', (event) => {
         documentNameElement.textContent = displayName;
         documentSizeElement.textContent = formatBytes(file.size);
         documentTypeElement.textContent = getFileExtension(file.name).toUpperCase();
-
+        
         document.getElementById('docm').style.display = 'flex';
     }
 

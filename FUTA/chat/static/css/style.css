@@ -8,8 +8,9 @@ body{
   margin: 0;
   transition: ease-in .3s;
 }
-body.fadeIn {
-   animation: fadeIn 1000ms ease-in-out;
+body .fadeIn {
+  animation: fadeIn 1000ms ease-in-out;
+  transition: ease-in .3s;
 }
 
 @keyframes fadeIn {
