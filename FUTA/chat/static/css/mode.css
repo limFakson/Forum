@@ -5,6 +5,10 @@ body{
     background-color: #000;
     color: #fff;
 }
+.top-nav{
+    background-color: #000;
+    border-bottom: #fff 1px solid;
+}
 .exquis{
     background-color: #000;
     border-right: 1px #fff solid;
