@@ -1,4 +1,4 @@
- 
+ console.log('register')
  // Script nd Function for form submission and password validation
  const form = document.getElementById('form');
  const error = document.getElementById('error');
