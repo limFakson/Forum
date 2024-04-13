@@ -3,9 +3,10 @@
   <head>
     {% load static %}
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!-- <meta http-equiv="refresh" content="30"> -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/feed.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}" />
+    <link rel="stylesheet" type="text/css" href="" id="modeCss"/>
     <script src="{% static 'js/body.js' %}"></script>
     <link rel="shortcut icon" href="{% static 'media/images/FUTA-logo.png' %}" type="image/x-icon">
     <title>{% block title %}{% endblock %}</title>
@@ -32,7 +33,7 @@
         </div>
         {% if user.is_authenticated %}
         <div class="side_nav">
-          <div class="exquis">
+          <div class="exquis" id="nav">
             <div class="nav-header">
               <div class="lgimg">
                 <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
@@ -75,6 +76,15 @@
                     </a>
                   </li>
                 </ul>
+                <div class="mode" onclick="switchMode()">
+                  <p> <span id="mode">Light Mode</span></p>
+                  <span id="dark" style="display: none;">
+                    <i class="bi bi-moon-stars-fill"></i>
+                  </span>
+                  <span id="light">
+                    <i class="bi bi-brightness-high-fill"></i>
+                  </span>
+                </div>
               </div>
               <div class="user" onclick="account()">
                 <span>

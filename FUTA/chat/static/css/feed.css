@@ -32,6 +32,7 @@
     right: 10px;
     bottom: 20px;
     cursor: pointer;
+    z-index: 1;
 }
 .postform{
     display: flex;
@@ -39,6 +40,7 @@
     align-items: flex-start;
     gap: 1rem;
     padding: 1rem;
+    padding-right: 0;
     border: #000 1px solid;
     border-left: none;
     border-right: none;
@@ -55,13 +57,16 @@
 }
 .post_input textarea{
     width: 100%;
-    height: 4rem;
+    height: 5rem;
     outline: none;
     border: none;
     padding: 1rem;
     resize: none;
     font-weight: 400;
     font-size: 15px;
+}
+textarea:focus{
+    border-bottom: 1px #000 solid;
 }
 .post_input button{
     justify-self: end;
@@ -70,7 +75,7 @@
     display: none;
 }
 #media{
-    margin: 1rem;
+    margin-top: 10px;
 }
 .docm{
     display: none;
@@ -93,6 +98,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 10px;
 }
 .media_upload-icon i{
     font-size: 25px;
@@ -125,34 +131,39 @@
     margin: 8px 0;
 }
 .post-content{
+    margin: 1rem 0;
     display: grid;
-    grid-template-columns: auto 1fr;
     gap: 1rem;
+    position: relative;
 }
 .postdoc{
-    margin-top: 10px;
     position: relative;
-    width: 100px;
-    justify-self: end;
+    display: flex;
+    align-items: center;
+    background-color: #eeeeee;
 }
 .post_doc{
-    width: 100%;
-    height: 100px;
+    width: 60px;
+    flex-grow: 1;
 }
 .docdetails{
-    position: absolute;
-    background-color: #eeeeee;
+    position: relative;
+    width: auto;
     padding: 1rem;
+    padding-right: 2rem;
     bottom: 1px;
+    flex-grow: 1;
 }
-.docdetails span{
-    font-size: 10px;
-    font-weight: 400;
-    color: #000;
+a{
     text-decoration: none;
 }
+.docdetails span{
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #000;
+    word-wrap: break-word;
+}
 .postimg{
-    margin-top: 10px;
     display: grid;
 }
 .postimg img{
@@ -184,16 +195,16 @@
     background-color: transparent;
 }
 
-@media (min-width: 1024px){
+@media (min-width: 768px){
+    .post-content{
+        grid-template-columns: auto 1fr;
+    }
     .postdoc{
-        margin-top: 10px;
-        position: relative;
-        width: 180px;
-        justify-self: end;
+        display: block;
+        width: 150px;
     }
     .post_doc{
-        width: 100%;
-        height: 175px;
+        width: -webkit-fill-available;
     }
 }
 
@@ -260,6 +271,13 @@
         width: 20rem;
         margin: 0 1rem;
         padding-top: 10px;
+    }
+    .postdoc{
+        display: block;
+        width: 100px;
+    }
+    .docdetails{
+        padding: 5px;
     }
 
 }

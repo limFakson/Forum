@@ -66,10 +66,10 @@
                                     {% if post.image and post.docm %}
                                         <!-- Display both image and document -->
                                         <div class="post-content">
-                                            <div class="postimg">
+                                            <div class="postimg post-item">
                                                 <img src="{{ post.image.url }}" alt="Image">
                                             </div>
-                                            <div class="postdoc">
+                                            <div class="postdoc post-item">
                                                 <a href="{{ post.docm.url }}" id="documentLink" target="_blank">
                                                     <diiv class="postdoc">
                                                         <img src="{% static 'media/images/pdf_logo.jpg' %}" alt="" class="post_doc">
@@ -110,7 +110,8 @@
                 <i class="bi bi-search"></i>
                 <input type="text" placeholder="Search" class="searchbar">
             </div>
-            <div class="user_profile"></div>
+            <div class="user_profile">
+            </div>
         </div>
     </div>
 </div>

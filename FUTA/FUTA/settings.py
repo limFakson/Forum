@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
+from decouple import config
+
+config_file_path = "../.env"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,13 +24,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=loufj3gc-rnm&84t@84yn-=f*ei6y7j$-1otc_gsvo9gm*h(y'
+SECRET_KEY = config("STATUS_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = [ '192.168.194.196' ]
+# Retrieve the value of ALLOWED_HOSTS from the environment variable
+allowed_hosts_str = config('ALLOWED_HOST', default='localhost')
 
+# Split the string into a list of allowed hosts
+ALLOWED_HOSTS = [host.strip() for host in allowed_hosts_str.split(',')]
+
+# For development, add 'localhost' as a default if ALLOWED_HOSTS is empty
+if not ALLOWED_HOSTS:
+    ALLOWED_HOSTS = ['localhost']
+
+#Database url to connect to
+DATABASEE_URL = config("DATABASE_URL")
 
 # Application definition
 
@@ -84,6 +98,10 @@ DATABASES = {
     }
 }
 
+# Second database
+DATABASES = {
+    'default': dj_database_url.config(default = DATABASEE_URL)
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

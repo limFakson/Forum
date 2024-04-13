@@ -8,8 +8,9 @@ body{
   margin: 0;
   transition: ease-in .3s;
 }
-body.fadeIn {
-   animation: fadeIn 1000ms ease-in-out;
+body .fadeIn {
+  animation: fadeIn 1000ms ease-in-out;
+  transition: ease-in .3s;
 }
 
 @keyframes fadeIn {
@@ -228,6 +229,24 @@ ul p{
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
+}
+.mode{
+  margin: 1rem 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 10rem;
+  cursor: pointer;
+}
+.mode p{
+  color: #000;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.mode i{
+  color: #4e0445;
 }
 .user{
   display: flex;
