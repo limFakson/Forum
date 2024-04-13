@@ -25,6 +25,13 @@ package-lock.json
 *.pyd
 __pycache__/
 
+
+# ignore virtual environment folder
+venv/
+
+# ignore env file
+.env
+
 # Ignore Java specific files
 *.class
 *.jar
