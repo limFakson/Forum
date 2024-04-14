@@ -13,7 +13,7 @@
       <h3 id="cta">Create Account.</h3>
     </div>
     <div class="log">
-      <form class="shadow-lg" method="post" class="form" id="form">
+      <form class="shadow-lg" method="POST" class="form" id="form">
         {% csrf_token %}
         <p>
           {{ form.firstname }}
@@ -46,8 +46,8 @@
       {% endif %}
       
       <div class="error">
-        {% for message in messages %}
-          <p class="text-danger">{{message}}</p>
+        {% for error in error %}
+          <p class="text-danger">{{error}}</p>
         {% endfor %}
       </div>
       <span>

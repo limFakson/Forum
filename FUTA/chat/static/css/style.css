@@ -82,6 +82,7 @@ ul{
   list-style: none;
 }
 .error{
+  text-align: left;
   color: crimson;
   font-size: 12px;
   font-weight: 500;

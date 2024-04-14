@@ -12,6 +12,9 @@ from .models import UserProfile, Posts
 # Create your views here.
 @login_required(login_url="/forum/login")
 def home(request):
+    if not hasattr(request.user, 'userprofile'):
+        return redirect('/forum/profile/onboarding')
+     
     userprofile = UserProfile.objects.get(user=request.user)
     post = Posts.objects.all().order_by('-created_at')
 
@@ -35,11 +38,15 @@ def home(request):
 def createAccount(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
+        print('form')
         if form.is_valid():
+            print('formh')
             user = form.save()
+            print('formq')
             login(request, user)
             return redirect('profile/onboarding')
         else:
+            print(form.errors)
             return render(request, 'registration/createAccount.html', {'form': form, 'signUp': 'Title'})
     else:
         form = UserRegistrationForm()
