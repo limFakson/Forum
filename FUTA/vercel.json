@@ -1,17 +1,16 @@
 {
   "builds": [
     {
-      "src": "./Futa/wsgi.py",
-      "use": "@vercel/python"
+      "src": "Futa/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.8"
+      }
     }
   ],
   "version": 2,
   "env": {
     "PYTHON_VERSION": "3.8"
-  },
-  "build": {
-    "env": {
-      "PIP_INSTALL": "pip install -r requirements.txt"
-    }
   }
 }
