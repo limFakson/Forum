@@ -1,13 +1,13 @@
 {
-  "version": 2,
   "builds": [
     {
-      "src": "FUTA/wsgi.py",
+      "src": "./Futa/application",
       "use": "@vercel/python"
     }
   ],
+  "version": 2,
   "env": {
-    "PYTHON_VERSION": "3.9"
+    "PYTHON_VERSION": "3.8"
   },
   "build": {
     "env": {
@@ -15,4 +15,3 @@
     }
   }
 }
-
