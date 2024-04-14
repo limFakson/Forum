@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "./Futa/application",
+      "src": "./Futa/wsgi.py",
       "use": "@vercel/python"
     }
   ],
