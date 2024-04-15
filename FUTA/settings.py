@@ -146,7 +146,6 @@ STATICFILES_DIRS = (
 )
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'chat/static/media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'chat/static')
 
 
 # Default primary key field type
