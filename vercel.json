@@ -1,6 +1,7 @@
 {
     "version": 2,
-"builds": [{
+"builds": [
+    {
     "src": "FUTA/wsgi.py",
     "use": "@vercel/python",
     "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
