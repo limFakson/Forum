@@ -146,7 +146,7 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'chat/static/media')
 
 # Define STATIC_ROOT to specify where Django should collect static files.
-STATIC_ROOT = os.path.join(BASE_DIR, 'STATICFILES_DIRS')
+STATIC_ROOT = os.path.join(BASE_DIR, 'chat/static')
 
 
 # Default primary key field type
