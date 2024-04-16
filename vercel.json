@@ -23,8 +23,19 @@
       "dest": "/static/$1"
     },
     {
+      "src": "/media/(.*)",
+      "dest": "/media/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "FUTA/wsgi.py"
+    },
+    {
       "src": "/(.*)",
       "dest": "FUTA/wsgi.py"
     }
-  ]
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "FUTA.settings"
+  }
 }
