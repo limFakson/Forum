@@ -139,14 +139,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'chat/static'),
-# )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'chat/static'),
+)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'chat/static/media')
 
 # Define STATIC_ROOT to specify where Django should collect static files.
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles_build', 'chat/static')
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles', 'chat/static')
 
 
 # Default primary key field type
