@@ -79,5 +79,6 @@ def logout_view(request):
     return redirect('/home')
 
 
-def profile(request):
-    return render(request,'profile.html',{'Profile':'Title'})    
+def Space(request):
+    
+    return render(request, 'space.html', {'space': 'Title'})    

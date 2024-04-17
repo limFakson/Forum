@@ -52,25 +52,25 @@
                     </a>
                   </li>
                   <li>
-                    <a href="/">
+                    <a href="/forum/space">
                       <i class="bi bi-buildings-fill"></i>
                       <p>{{ user.userprofile.faculty }}</p>
                     </a>
                   </li>
                   <li>
-                    <a href="/">
+                    <a href="/forum/space">
                       <i class="bi bi-people-fill"></i>
                       <p>{{ user.userprofile.Department }}</p>
                     </a>
                   </li>
                   <li>
-                    <a href="/">
+                    <a href="/forum/space">
                       <i class="bi bi-person-fill"></i>
                       <p>Account</p>
                     </a>
                   </li>
                   <li>
-                    <a href="/">
+                    <a href="/forum/space">
                       <i class="bi bi-card-list"></i>
                       <p>About</p>
                     </a>
@@ -105,6 +105,7 @@
       </header>
       <main>
         {% block content %} {% endblock %}
+        {% block space %} {% endblock %}
       </main>
     </div>
     {% comment %}

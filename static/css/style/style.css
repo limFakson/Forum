@@ -343,3 +343,11 @@ ul p{
   }
 
 }
+
+.space{
+  background-color: #4e0445;
+}
+.space_status{
+  font-size: 3rem;
+  color: #000;
+}

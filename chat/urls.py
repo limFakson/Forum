@@ -9,7 +9,7 @@ urlpatterns = [
     path('forum/register', views.createAccount, name= 'register'),
     path('forum/profile/onboarding', views.create_profile, name= 'create_profile'),
     path('forum/logout', views.logout_view, name = 'logout'),
-    path('forum/profile', views.profile, name= 'profilePage'),
+    path('forum/space', views.Space, name= 'space'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
