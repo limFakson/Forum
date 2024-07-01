@@ -38,11 +38,8 @@ def home(request):
 def createAccount(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
-        print('form')
         if form.is_valid():
-            print('formh')
             user = form.save()
-            print('formq')
             login(request, user)
             return redirect('profile/onboarding')
         else:
@@ -80,5 +77,4 @@ def logout_view(request):
 
 
 def Space(request):
-    
-    return render(request, 'space.html', {'space': 'Title'})    
+    return render(request, 'space.html')

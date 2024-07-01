@@ -5,16 +5,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!-- <meta http-equiv="refresh" content="30"> -->
     <link rel="stylesheet" href="{% static 'css/style/style.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/feed/feed.css' %}" />
-    <link rel="stylesheet" type="text/css" href="" id="modeCss"/>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/feed/feed.css' %}"
+    />
+    <link rel="stylesheet" type="text/css" href="" id="modeCss" />
     <script src="{% static 'js/boby/body.js' %}"></script>
-    <link rel="shortcut icon" href="{% static 'media/images/FUTA-logo.png' %}" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="{% static 'media/images/FUTA-logo.png' %}"
+      type="image/x-icon"
+    />
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
   </head>
   <body>
-    {% if Home %}
     <div class="site">
+      {% if user.is_authenticated %}
       <header class="nav">
         <div class="top">
           <div class="top-nav">
@@ -23,7 +34,7 @@
                 <i class="bi bi-list"></i>
               </span>
               <div class="lgimg">
-                <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
+                <img src="{% static 'media/images/FUTA-logo.png' %}" alt="" />
               </div>
               <span class="search-bar">
                 <i class="bi bi-search"></i>
@@ -31,12 +42,11 @@
             </div>
           </div>
         </div>
-        {% if user.is_authenticated %}
         <div class="side_nav">
           <div class="exquis" id="nav">
             <div class="nav-header">
               <div class="lgimg">
-                <img src="{% static 'media/images/FUTA-logo.png' %}" alt="">
+                <img src="{% static 'media/images/FUTA-logo.png' %}" alt="" />
               </div>
               <span class="close-menu menu_i">
                 <i class="bi bi-x-lg"></i>
@@ -77,8 +87,8 @@
                   </li>
                 </ul>
                 <div class="mode" onclick="switchMode()">
-                  <p> <span id="mode">Light Mode</span></p>
-                  <span id="dark" style="display: none;">
+                  <p><span id="mode">Light Mode</span></p>
+                  <span id="dark" style="display: none">
                     <i class="bi bi-moon-stars-fill"></i>
                   </span>
                   <span id="light">
@@ -88,7 +98,11 @@
               </div>
               <div class="user" onclick="account()">
                 <span>
-                  <img src="{{ user.userprofile.profile_picture.url }}" class="userpics" alt="">
+                  <img
+                    src="{{ user.userprofile.profile_picture.url }}"
+                    class="userpics"
+                    alt=""
+                  />
                 </span>
                 <span class="userdetails">
                   <h3 id="nav-username">{{ user.username|capfirst }}</h3>
@@ -98,39 +112,34 @@
             </div>
           </div>
         </div>
-        {% else %}
-        
-        
-        {% endif %}
       </header>
-      <main>
-        {% block content %} {% endblock %}
-        {% block space %} {% endblock %}
-      </main>
+      {% endif %}
+      <main>{% block content %} {% endblock %}</main>
     </div>
     {% comment %}
-      <footer id="foot">
-        <div>
-          <p>&copy; 2024 FUTA Chat</p>
-        </div>
-        </footer>
-      {% endcomment %}
-    {% else %}
-    <main>
-      {% block registration %} {% endblock %}
-    </main>
-    {% endif %}
+    <footer id="foot">
+      <div>
+        <p>&copy; 2024 FUTA Chat</p>
+      </div>
+    </footer>
+    {% endcomment %}
+    <main>{% block registration %} {% endblock %}</main>
 
     <!--External Links-->
-    
-    
+
     <script src="{% static 'js/onboarding/onboarding.js' %}"></script>
     <script src="{% static 'js/navbar/navbar.js' %}"></script>
     <script src="{% static 'js/home/home.js' %}"></script>
     <script src="{% static 'js/register/register.js' %}"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=My+Soul&family=Nova+Flat&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=My+Soul&family=Nova+Flat&display=swap"
+      rel="stylesheet"
+    />
   </body>
 </html>

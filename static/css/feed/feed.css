@@ -240,6 +240,12 @@ a{
         width: 15rem;
         position: relative;
     }
+    .space{
+        width: 35rem;
+    }
+    .space-container{
+    width: 30rem;
+    }
     .row-profile{
         width: 15rem;
     }
@@ -280,4 +286,25 @@ a{
         padding: 5px;
     }
 
+}
+
+.space{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 60rem;
+}
+.space-container{
+    text-align: center;
+    width: 50rem;
+}
+.space_status{
+    font-size: 3rem;
+    padding-bottom: 3rem;
+}
+.space_msg{
+    font-size: 2.6rem;
+    font-weight: 600;
 }
